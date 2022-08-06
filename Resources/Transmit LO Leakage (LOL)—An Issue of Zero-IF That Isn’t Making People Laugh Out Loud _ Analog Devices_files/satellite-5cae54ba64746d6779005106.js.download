@@ -1,0 +1,10 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  var url = _satellite.getVar('Page Name');
+if ((url.indexOf("www-qa.corpnt.analog.com")) > -1 || (url.indexOf("www-dev.corpnt.analog.com")) > -1 || (url.indexOf("www-qa.cldnet.analog.com")) > -1 || (url.indexOf("www-dev.cldnet.analog.com")) > -1 || (url.indexOf("www.analog.com")) > -1) {
+  //console.log("in sessioncam");
+  var scRec = document.createElement('SCRIPT');
+  scRec.type = 'text/javascript';
+  scRec.src = "//d2oh4tlt9mrke9.cloudfront.net/Record/js/sessioncam.recorder.js"
+  document.getElementsByTagName('head')[0].appendChild(scRec);
+}
+});

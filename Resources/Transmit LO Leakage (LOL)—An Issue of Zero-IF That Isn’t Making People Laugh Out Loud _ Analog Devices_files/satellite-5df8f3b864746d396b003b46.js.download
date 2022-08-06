@@ -1,0 +1,30 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function () {
+
+    var interval;
+
+    function run() {
+
+        if (!window.dbP || (window.dbP && !window.dbP.stringData) || Object.keys(window.dbP.stringData).length === 0) {
+            if (!interval) interval = setInterval(run, 200);
+            return;
+        }
+        if (interval) clearInterval(interval);
+        var country = dbP.sess.country.toLowerCase();
+
+        if (country !== 'us') return;
+
+        (function (d) { 
+            var a = d.createElement("img"), c = function (a) { d.addEventListener ? d.addEventListener("DOMContentLoaded", a) : window.attachEvent("onload", a) }; 
+            a.height = "0"; 
+            a.width = "0"; 
+            a.src = ("https:" == d.location.protocol ? "https:" : "http:") + "//www.digikey.com/pt.gif?sc_camp=B9B2EE51216440D986C866CC3CD7B3A0|505|"; 
+            d.body ? d.body.appendChild(a) : c(function () { d.body.appendChild(a) }) 
+        })(document)
+
+    }
+
+    run();
+    _satellite.notify('ADI: Digikey Pixel');
+})();
+});

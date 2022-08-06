@@ -1,0 +1,107 @@
+/* Enter Your Custom CSS Here */
+.video_center {
+   margin-left: auto !important;
+   margin-right: auto !important;
+   display: table !important;
+}
+ins {
+    background-color: #FFFFFF !important;
+}
+
+.shopify-buy__layout-vertical { 
+  display: inline-block !important; 
+}
+
+.shopify-buy__btn-wrapper { 
+  margin: 0px !important; 
+}
+
+#preloader_uris{
+display: none !important;
+}
+
+
+.woocommerce #content input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover {
+
+background:red !important;
+
+background-color:red !important;
+
+color:white !important;
+
+text-shadow: transparent !important;
+
+box-shadow: none;
+
+border-color:#ca0606 !important;
+
+}
+
+.woocommerce #content input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce-page #content input.button:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover {
+
+background:red !important;
+
+background-color:red !important;
+
+color:white !important;
+
+text-shadow: transparent !important;
+
+box-shadow: none;
+
+border-color:#ca0606 !important;
+  
+
+}
+
+.woocommerce #content input.button, .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce-page #content input.button, .woocommerce-page #respond input#submit, .woocommerce-page a.button, .woocommerce-page button.button, .woocommerce-page input.button {
+
+background: red !important;
+
+color:white !important;
+
+text-shadow: transparent !important;
+
+border-color:#ca0606 !important;
+
+}
+
+.woocommerce #content input.button.alt:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #respond input#submit.alt:hover, .woocommerce-page a.button.alt:hover, .woocommerce-page button.button.alt:hover, .woocommerce-page input.button.alt:hover {
+
+background: red !important;
+
+box-shadow: none;
+
+text-shadow: transparent !important;
+
+color:white !important;
+
+border-color:#ca0606 !important;
+
+}
+
+.woocommerce .woocommerce-error .button, .woocommerce .woocommerce-info .button, .woocommerce .woocommerce-message .button, .woocommerce-page .woocommerce-error .button, .woocommerce-page .woocommerce-info .button, .woocommerce-page .woocommerce-message .button { display: none !important; }
+
+input[type="checkbox"] {
+  vertical-align: text-bottom !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.woocommerce form .form-row .required { text-decoration: none; }
+
+.woocommerce-checkout #payment .payment_method_paypal .about_paypal { display: none; }
+
+.woocommerce-checkout #payment ul.payment_methods li img { float: right; margin: -2px 0 5px 0.5em; }
+
+.woocommerce-checkout #payment div.payment_box { clear: right; }
+
+.woocommerce-checkout #payment .payment_method_paypal label[for=payment_method_paypal] { display: contents; }
+
+.woocommerce-checkout #payment .payment_method_express_checkout label[for=payment_method_express_checkout] { display: contents; }
+
+.woocommerce-checkout #payment .payment_method_gourlpayments label[for=payment_method_gourlpayments] { display: contents; }
+
+span.swp_label { text-align: left !important; }
+
+tbody th { border-bottom: 0px; }

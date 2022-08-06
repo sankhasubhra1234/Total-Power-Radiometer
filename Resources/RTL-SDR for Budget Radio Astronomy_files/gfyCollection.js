@@ -1,0 +1,11 @@
+var gfyCollection=function(){var collection=[],gfyClass="gfyitem",scrollTop;function byClass(className,obj){if(obj.getElementsByClassName){return obj.getElementsByClassName(className);}else{var retnode=[];var elem=obj.getElementsByTagName('*');for(var i=0;i<elem.length;i++){if((' '+elem[i].className+' ').indexOf(' '+className+' ')>-1)retnode.push(elem[i]);}
+return retnode;}}
+function init(classname){if(typeof GfyAnalytics!=='undefined')GfyAnalytics.initGA();classname=typeof classname==="string"?classname:gfyClass;scan(classname);attachEventListeners();}
+var scrollTimer;function scrollHandler(){if(scrollTimer){clearTimeout(scrollTimer);}
+scrollTimer=setTimeout(function(){scrollTop=document.body.scrollTop;for(var i=0;i<collection.length;i++){collection[i].checkScroll(scrollTop);}},100);}
+function onPageUpdate(){scrollTop=document.body.scrollTop;var windowHeight=window.innerHeight;for(var i=0;i<collection.length;i++){collection[i].onPageUpdate(windowHeight,scrollTop);}}
+function attachEventListeners(){if(window.addEventListener){addEventListener('DOMContentLoaded',onPageUpdate,false);addEventListener('load',onPageUpdate,false);addEventListener('resize',onPageUpdate,false);addEventListener('scroll',scrollHandler,false);}else if(window.attachEvent){attachEvent('DOMContentLoaded',onPageUpdate,false);attachEvent('load',onPageUpdate,false);attachEvent('resize',onPageUpdate,false);attachEvent('scroll',scrollHandler,false);}}
+function scan(classname){classname=typeof classname==="string"?classname:gfyClass;var last=collection.length;var elem_coll=byClass(classname,document);for(var i=0;i<elem_coll.length;i++){var gfyObj=new gfyObject(elem_coll[i],classname);collection.push(gfyObj);}
+for(var i=last;i<collection.length;i++){collection[i].init();}}
+function get(){return collection;}
+init();return{init:init,get:get,scan:scan};}();if(document.addEventListener){document.addEventListener("DOMContentLoaded",function(){gfyCollection.init();},false);}else{document.attachEvent("onreadystatechange",gfyCollection.init);}

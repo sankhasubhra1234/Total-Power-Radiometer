@@ -1,0 +1,24 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function(){
+
+    var interval;
+
+    function run(){
+
+				if( !window.dbP || ( window.dbP && !window.dbP.stringData ) || Object.keys( window.dbP.stringData ).length === 0 ){
+            if( !interval ) interval = setInterval( run, 200 );
+            return;
+        }
+        if( interval ) clearInterval( interval );
+				var country = dbP.sess.country.toLowerCase();
+      
+        if( country !== 'us' ) return;
+
+        (function(d, p){var a=d.createElement("iframe"),c=function(a){d.addEventListener?d.addEventListener("DOMContentLoaded",a):window.attachEvent("onload",a)};a.height="0";a.width="0";a.style.display="none";a.style.visibility="hidden";a.src=("https:"==d.location.protocol?"https:":"http:")+"//rs.gwallet.com/r1/pixeltag/x"+p+"r"+Math.round(1E9*Math.random());d.body?d.body.appendChild(a):c(function(){d.body.appendChild(a)})})(document, "450")
+            
+    }
+
+    run();
+		_satellite.notify('ADI: RadiumOne pixel');
+})();
+});

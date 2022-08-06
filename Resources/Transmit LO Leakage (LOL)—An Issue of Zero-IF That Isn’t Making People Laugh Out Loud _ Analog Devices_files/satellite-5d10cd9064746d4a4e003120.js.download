@@ -1,0 +1,39 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function(){
+    var interval;
+    function run(){
+				if( !window.dbP || ( window.dbP && !window.dbP.stringData ) || Object.keys( window.dbP.stringData ).length === 0 ){
+            if( !interval ) interval = setInterval( run, 200 );
+            return;
+        }
+        if( interval ) clearInterval( interval );
+				var country = dbP.sess.country.toLowerCase();
+      	/* 
+          Copyright 2011-2015 iPerceptions, Inc. All rights reserved. Do not distribute.iPerceptions provides this 
+          code 'as is' without warranty of any kind, either express or implied. 
+        */ 
+	      window.iperceptionskey = 'acafac0d-3b8a-4d30-8a98-6cbcd5256d93';
+        if( country === 'cn' || country === 'zh' ) {
+          //load the asia URL for CN
+          (function () { 
+            var a = document.createElement('script'),b = document.getElementsByTagName('body')[0]; 
+            a.type = 'text/javascript'; 
+            a.async = true;
+            a.src = '//universal.iper2.com/wrapper.js';b.appendChild(a);
+          })(); 
+        } else {
+            // and the univarsal URL for the rest of the world.
+            (function (){ 
+                var a = document.createElement('script'), b = document.getElementsByTagName('body')[0];
+                a.type = 'text/javascript';
+                a.defer = true;a.src = '//universal.iperceptions.com/wrapper.js';
+                b.appendChild(a); 
+            })(); 
+        };
+
+    }
+
+    run();
+		_satellite.notify('ADI: iPerceptions call');
+})();
+});

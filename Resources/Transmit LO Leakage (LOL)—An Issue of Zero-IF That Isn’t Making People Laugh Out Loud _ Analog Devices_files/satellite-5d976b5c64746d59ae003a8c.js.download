@@ -1,0 +1,17 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function( d ){
+
+  var s = d.createElement( 'script' );
+  
+  s.src = "https://www.googletagmanager.com/gtag/js?id=AW-759938314";
+  s.async = true;
+  d.body.appendChild( s );
+  window.dataLayer = window.dataLayer || [];
+  
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-759938314');
+
+})( document );
+
+});

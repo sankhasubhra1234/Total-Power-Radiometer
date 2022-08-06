@@ -1,0 +1,257 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function( w ){
+
+    /**
+     * @name events
+     * @object
+     * @description Contains the list of events that should be triggered for personalization.
+     * To add an event, simply add an object to the corresponding event and it will be executed.
+     */
+    var events = {
+        click: [],
+        load: []
+    },
+    delimiter = ',',
+    goals = [],
+    trackGoalUrl = "/services/SitecoreAnalyticsService.svc/TrackGoal";
+
+    /**
+     * @name bind
+     * @function
+     * @description Binds events to their respective elements
+     */
+    function bind(){
+
+        var handleEvent = function( event ){
+
+            if( !checkValidity( event ) || !event.selector ) return;
+            
+            if( event.goal ){
+
+                goals.forEach(function( goal ){
+                    bindSelector( event.id, event.selector.replace( '{goal}', goal[ 0 ] ) );
+                });
+
+            } else {
+                bindSelector( event.id, event.selector );
+            }
+
+        }
+
+        events.click.forEach( handleEvent );
+
+    }
+
+    function bindSelector( id, selector ){
+
+        var elems = document.querySelectorAll( selector );
+
+        for( var i = 0; i < elems.length; ++i ){
+            var elem = elems[ i ];
+            elem.dataset.eventIds = elem.dataset.eventIds ? elem.dataset.eventIds + delimiter + id : id;
+            elem.addEventListener( 'click', handleClick );
+        }
+    }
+
+    /**
+     * @name checkElement
+     * @function
+     * @description Determines if the provided element selector exists on the current page
+     * @returns {boolean}
+     * @param {string} selector
+     */
+    function checkElement( selector ){
+        return (!!document.querySelector( selector ) );
+    }
+
+    /**
+     * @name checkPath
+     * @function
+     * @description Determines if the current document path meets the regexp requirements
+     * @returns {boolean}
+     * @param {RegExp} exp Expression to check the path against
+     */
+    function checkPath( exp ){
+        return ( !!document.location.pathname.match( exp ) );
+    }
+
+    /**
+     * @name checkValidity
+     * @function
+     * @description Checks if an event is viable for the current page
+     * @returns {boolean}
+     * @param {object} event 
+     */
+    function checkValidity( event ){
+        
+        if( event.selector && !checkElement( event.selector ) ) return false;
+        if( event.matchPath && !checkPath( event.matchPath ) ) return false;
+        if( event.requires && !checkElement( event.requires ) ) return false;
+        if( event.disqualifiers && checkElement( event.disqualifiers ) ) return false;
+
+        _satellite.notify( 'Personalize for ' + event.context + ' - ' + event.type );
+
+        return true;
+    }
+
+    /**
+     * @name createEvent
+     * @function
+     * @description Adds an event to the appropriate queue
+     * @param {string} [type=click|load] Type of event to execute
+     * @param {object} event The event information
+     * @param {string} [event.context] The context in which the event is executing. Used for debugging
+     * @param {string} event.id The goal ID to be sent
+     * @param {RegExp} [event.matchPath] Expression to match paths in which the event should execute
+     * @param {string} [event.requires] CSS selector for an element that must be on the page to execute
+     * @param {string} [event.selector] CSS selector to bing the click event to. *Required* for click events.
+     * @param {string} [event.type] The type of personzalition that the event belongs to. Used for debugging
+     */
+    function createEvent( type, event ){
+        events[ type ].push( event );
+    };
+    w.dtmPersonalizationEvent = createEvent;
+
+    /**
+     * @name execute
+     * @function
+     * @description Executes page load functions only
+     */
+    function execute(){
+        var handleEvent = function( event ){
+
+            if( !checkValidity( event ) ) return;
+
+            track( event.id, null );
+        }
+
+        events.load.forEach( handleEvent );
+    }
+
+    /**
+     * @name handleClick
+     * @function
+     * @description Handles click events for click driven personalization
+     * @param {EventListenerObject} e 
+     */
+    function handleClick( e ){
+
+        var elem = e.currentTarget || e.target,
+        ids = elem.dataset.eventIds.split( ',' ),
+        href = elem.getAttribute( 'href' )
+        // determine if the goal should be tracked with unload
+        dontTrack = ( ( !elem.target || elem.target === '' ) && ( href !== '#' && !isDownloadable( elem ) ) ), 
+        count = 0,
+        callback = function(){
+            ++count;
+            if( count !== ids.length ) return;
+        },
+        trackId = function( id ){
+            track( id, elem.href, callback );
+        };
+
+        ( !dontTrack ) ? 
+            ids.forEach( trackId ) : // if the link isn't to be opened in a new tab don't track here
+            w.lastClicked = elem; // set the link as a global variable to track during the unload event
+    }
+    w.dtmPersonlizationClick = handleClick;
+
+    /**
+     * Tracking through the unload event allows us to delay the page load until the 
+     * TrackGoal requests have finished, without having to prevent the default action
+     * @name handleUnload
+     * @function
+     * @description Handles unload events triggered by clicking of a goal link. 
+     */
+    function handleUnload(){
+
+        if( !w.lastClicked ) return;
+
+        var ids = w.lastClicked.dataset.eventIds.split( ',' ),
+        trackId = function( id ){
+            var client = new XMLHttpRequest();
+            client.open( "GET", trackGoalUrl + '?eventId=' + id + '&link=' + w.lastClicked.href, false );
+            client.setRequestHeader( "Content-Type", "text/plain;charset=UTF-8" );
+            client.send();
+        };
+
+        ids.forEach( trackId );
+
+    }
+
+
+    /**
+     * @name init
+     * @function
+     * @description Initialize personalization
+     */
+    function init(){
+        bind()
+        execute();
+    }
+    w.dtmPersonalizationInit = init;
+
+    /**
+     * @name isDownloadable
+     * @function
+     * @description Determines if the provided anchor element triggers a download
+     * @param {HTMLElement} elem 
+     * @returns {boolean} `true` if it triggers a download, `false` if it triggers anything else
+     */
+    function isDownloadable( elem ){
+
+        var filetypes = [ '.cir', '.csv', '.mp4', '.wiki', '.zip' ],
+        href = elem.getAttribute( 'href' ),
+        isDownload = false;
+
+        if( elem.hasAttribute( 'download' ) ) return true;
+
+        filetypes.forEach(function( filetype ){
+            if( isDownload ) return;
+            isDownload = href.endsWith( filetype );
+        });
+
+        return isDownload;
+
+    }
+
+    /**
+     * @name retrieveGoals
+     * @function
+     * @description
+     * @param {function} callback 
+     */
+    /*function retrieveGoals( callback ){
+        jQuery.get( '/media/downloadgoals.csv', function( res ){
+            var map = function( item ){
+                return item.split( ',' );
+            };
+            goals = res.split( '\n' ).map( map );
+        }).done( callback );
+    }*/
+
+    function track( id, link, callback ){
+
+        var data = { eventId: id };
+      
+        if( link ) data.link = link;
+      
+        jQuery.ajax({
+            type: "GET",
+            data: data,
+            dataType: "jsonp",
+            crossDomain: true,
+            url: trackGoalUrl,
+            success: callback,
+            error: callback
+        });
+      
+    };
+
+    //retrieveGoals(function(){
+        w.dtmPersonalizationEvent = createEvent;
+        window.addEventListener( 'unload', handleUnload, false );
+    //});
+
+})( window );
+});

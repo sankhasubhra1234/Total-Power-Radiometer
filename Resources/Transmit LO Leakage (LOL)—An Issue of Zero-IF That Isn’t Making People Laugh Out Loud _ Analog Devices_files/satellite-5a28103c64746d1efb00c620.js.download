@@ -1,0 +1,28 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function(){
+
+    var interval;
+
+    function run(){
+
+				if( !window.dbP || ( window.dbP && !window.dbP.stringData ) || Object.keys( window.dbP.stringData ).length === 0 ){
+            if( !interval ) interval = setInterval( run, 200 );
+            return;
+        }
+        if( interval ) clearInterval( interval );
+				var country = dbP.sess.country.toLowerCase();
+      
+      
+        if( country === 'cn' || country === 'zh' ) return;
+
+        _linkedin_data_partner_id = "166193";
+
+        (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})();
+            
+    }
+
+    run();
+		
+  _satellite.notify('ADI: LinkedIn pixel');
+})();
+});

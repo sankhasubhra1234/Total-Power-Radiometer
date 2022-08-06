@@ -1,0 +1,32 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  (function(){
+
+    var interval;
+
+    function run(){
+
+		if( !window.dbP || ( window.dbP && !window.dbP.stringData ) || Object.keys( window.dbP.stringData ).length === 0 ){
+            if( !interval ) interval = setInterval( run, 200 );
+            return;
+        }
+        if( interval ) clearInterval( interval );
+		var country = dbP.sess.country.toLowerCase();
+        if( country === 'cn' || country === 'zh' ) return;
+
+        (function () { 
+            var s = document.getElementsByTagName("script")[0]; 
+            var b = document.createElement("script"); 
+            b.type = "text/javascript"; 
+            b.async = true; 
+            b.src = "https://p.teads.tv/teads-fellow.js"; 
+            s.parentNode.insertBefore(b, s); 
+        })();
+        window.teads_e = window.teads_e || [];
+        window.teads_adv_id = 28340;   
+    }
+
+    run();
+
+    _satellite.notify('TMK: Teads pixel');
+})();
+});

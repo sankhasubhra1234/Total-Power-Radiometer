@@ -1,0 +1,637 @@
+/*************************************/
+/**                                 **/
+/**             GLOSSARY            **/
+/**                                 **/
+/**  1.  dialogue-archive.js        **/
+/**  2.  dialogue-article.js        **/
+/**  3.  dialogue-home.js           **/
+/**  4.  dialogue-searchresults.js  **/
+/**  5.  dialogue-social.js         **/
+/**                                 **/
+/*************************************/
+
+
+$.fn.scrollspy = function(){};
+
+/*************************/
+/**       -= 0 =-       **/
+/**     vendor          **/
+/*************************/
+
+/*! Lazy Load 1.9.1 - MIT license - Copyright 2010-2013 Mika Tuupola */
+!function(a,b,c,d){var e=a(b);a.fn.lazyload=function(f){function g(){var b=0;i.each(function(){var c=a(this);if(!j.skip_invisible||c.is(":visible"))if(a.abovethetop(this,j)||a.leftofbegin(this,j));else if(a.belowthefold(this,j)||a.rightoffold(this,j)){if(++b>j.failure_limit)return!1}else c.trigger("appear"),b=0})}var h,i=this,j={threshold:0,failure_limit:0,event:"scroll",effect:"show",container:b,data_attribute:"original",skip_invisible:!0,appear:null,load:null,placeholder:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"};return f&&(d!==f.failurelimit&&(f.failure_limit=f.failurelimit,delete f.failurelimit),d!==f.effectspeed&&(f.effect_speed=f.effectspeed,delete f.effectspeed),a.extend(j,f)),h=j.container===d||j.container===b?e:a(j.container),0===j.event.indexOf("scroll")&&h.bind(j.event,function(){return g()}),this.each(function(){var b=this,c=a(b);b.loaded=!1,(c.attr("src")===d||c.attr("src")===!1)&&c.is("img")&&c.attr("src",j.placeholder),c.one("appear",function(){if(!this.loaded){if(j.appear){var d=i.length;j.appear.call(b,d,j)}a("<img />").bind("load",function(){var d=c.attr("data-"+j.data_attribute);c.hide(),c.is("img")?c.attr("src",d):c.css("background-image","url('"+d+"')"),c[j.effect](j.effect_speed),b.loaded=!0;var e=a.grep(i,function(a){return!a.loaded});if(i=a(e),j.load){var f=i.length;j.load.call(b,f,j)}}).attr("src",c.attr("data-"+j.data_attribute))}}),0!==j.event.indexOf("scroll")&&c.bind(j.event,function(){b.loaded||c.trigger("appear")})}),e.bind("resize",function(){g()}),/(?:iphone|ipod|ipad).*os 5/gi.test(navigator.appVersion)&&e.bind("pageshow",function(b){b.originalEvent&&b.originalEvent.persisted&&i.each(function(){a(this).trigger("appear")})}),a(c).ready(function(){g()}),this},a.belowthefold=function(c,f){var g;return g=f.container===d||f.container===b?(b.innerHeight?b.innerHeight:e.height())+e.scrollTop():a(f.container).offset().top+a(f.container).height(),g<=a(c).offset().top-f.threshold},a.rightoffold=function(c,f){var g;return g=f.container===d||f.container===b?e.width()+e.scrollLeft():a(f.container).offset().left+a(f.container).width(),g<=a(c).offset().left-f.threshold},a.abovethetop=function(c,f){var g;return g=f.container===d||f.container===b?e.scrollTop():a(f.container).offset().top,g>=a(c).offset().top+f.threshold+a(c).height()},a.leftofbegin=function(c,f){var g;return g=f.container===d||f.container===b?e.scrollLeft():a(f.container).offset().left,g>=a(c).offset().left+f.threshold+a(c).width()},a.inviewport=function(b,c){return!(a.rightoffold(b,c)||a.leftofbegin(b,c)||a.belowthefold(b,c)||a.abovethetop(b,c))},a.extend(a.expr[":"],{"below-the-fold":function(b){return a.belowthefold(b,{threshold:0})},"above-the-top":function(b){return!a.belowthefold(b,{threshold:0})},"right-of-screen":function(b){return a.rightoffold(b,{threshold:0})},"left-of-screen":function(b){return!a.rightoffold(b,{threshold:0})},"in-viewport":function(b){return a.inviewport(b,{threshold:0})},"above-the-fold":function(b){return!a.belowthefold(b,{threshold:0})},"right-of-fold":function(b){return a.rightoffold(b,{threshold:0})},"left-of-fold":function(b){return!a.rightoffold(b,{threshold:0})}})}(jQuery,window,document);
+
+
+/*************************/
+/**       -= 1 =-       **/
+/** dialogue-archive.js **/
+/*************************/
+
+$(document).ready(function () {
+    $('.dropdown-menu .dropdown .dropdown-toggle').on('click', function (event) {
+        event.stopPropagation();
+        var target = $(this).next('.dropdown-menu');
+        var grandparent = $(this).parent().parent().parent();
+        grandparent.find(".sub-menu .dropdown-menu:visible").not(target).hide();
+        target.toggle();
+    });
+
+    $('.dropdown-menu .dropdown .dropdown-toggle').on('click', function () {
+        var root = $(this).closest('.dropdown');
+        root.find('.sub-menu:visible').hide();
+    });
+
+    $('div:not(.dropdown)').on('click', function () {
+        $('.sub-menu .dropdown-menu:visible').hide();
+    });
+
+    $('#raq-list-expander').on('click', function () {
+        $('.more-raqs').toggleClass('expanded');
+        if ($(this).text() == "LOAD MORE RAQs") {
+            $(this).text("SHOW FEWER RAQs");
+        } else if ($(this).text() == "SHOW FEWER RAQs") {
+            $(this).text("LOAD MORE RAQs");
+        }
+    });
+
+    function loadArchiveData(year, direction) {
+        var jsonURL = $(".sort-archives").data("jsonurl");
+        $.getJSON(jsonURL, function (data) {
+            if (year == null && direction == null) {
+                handlerData(data);
+            } else {
+                processData(data, year, direction);
+            }
+
+        });
+    }
+
+    function processData(jsonData, year, direction) {
+        var data = jsonData;
+        if (year != null && year != "ALL") {
+            data = $.grep(data, function (a, b) {
+                var publishDate = a.publishDate.substr(3);
+                publishDate = +publishDate;
+                return publishDate === year;
+            });
+        }
+        data = data.sort(function (a, b) {
+            var sortParamA = new Date(a.publishDate.replace('-', '/01/')).getTime();
+            var sortParamB = new Date(b.publishDate.replace('-', '/01/')).getTime();
+            if (sortDirection == "asc") {
+                return sortParamB - sortParamA;
+            } else {
+                return sortParamA - sortParamB;
+            }
+        });
+        handlerData(data);
+    }
+
+    function handlerData(data) {
+        var wrapper = {
+            "archives": data
+        },
+            templateSource = $("#archive-li-template").html(),
+            template = Handlebars.compile(templateSource),
+            archiveHTML = template(wrapper);
+        $('ul.archive-links').html(archiveHTML);
+    }
+
+    var filterYear = null;
+    var sortDirection = 'asc';
+    var sortAscText = $('a.sort-selector[data-sort="asc"]').html() || 'Newest <i class="fa fa-angle-down"></i>';
+    var sortDscText = $('a.sort-selector[data-sort="dsc"]').html() || 'Oldest <i class="fa fa-angle-down"></i>';
+
+    $('.sort-selector').on('click', function () {
+        sortDirection = $(this).data('sort');
+        var iArrow = $("#sort").find('i'); //AL-7902
+        if (sortDirection == "asc") {
+            $('#sort').html(sortAscText);
+        } else {
+            $('#sort').html(sortDscText);
+        }
+        $('#sort').append(iArrow); //AL-7902
+        loadArchiveData(filterYear, sortDirection);
+    });
+    $('.year-selector').on('click', function () {
+        filterYear = $(this).data('year');
+        filterYearLabel = $(this).html();
+        $('#year').html(filterYearLabel + ' <i class="fa fa-angle-down"></i>');
+        loadArchiveData(filterYear, sortDirection);
+    });
+    
+    // AL-7769 - Code commented due to duplication on line 429
+    //$('.modal-dialog').parent().on('show.bs.modal', function(e) {
+        //$(e.relatedTarget.attributes['data-target'].value).appendTo('body');
+    //});
+    // AL-7769 - Code commented due to duplication on line 429
+    
+});
+
+/**************************/
+/**        -= 2 =-       **/
+/** dialogue-article.js  **/
+/**************************/
+
+$(document).ready(function () {
+    $('.search.container .fa-search').on('click', function () {
+        $('.search-input').toggleClass('hide');
+        $('#searchinput').focus();
+    });
+    $('.search-input .close').on('click', function () {
+        $('.search-input').toggleClass('hide');
+        $('#searchinput').clear();
+    });
+    $(window).scroll(function () {
+        $('.dialogue').addClass('navbar-fixed-top');
+        var nScrollTop = $(this).scrollTop();
+        if (nScrollTop < 50) {
+            $('.dialogue').removeClass('navbar-fixed-top');
+        }
+    });
+    // MAIN HEADER SEARCH FUNCTIONS
+    // Progressive enhancement- if js is disabled the default submit button will be visible
+    $('.search.container input[type=submit]').addClass('hide');
+    $('.search.container #search-toggle').removeClass('hide');
+    $("#search-form input[type=text]").on('focus', function () {
+        $('.search.container').addClass('active');
+    });
+    $('#search-toggle').on('click', function () {
+        // OPTIONAL- If you want the magnifying glass button to simply toggle the active state,
+        // comment out the conditional and use this instead- $('.search.container').toggleClass('active');
+        // Otherwise the below test will toggle on the active state on first click,
+        // and then submit your search if you click the magnifier button inside the active search
+        if ($(this).parent().parent().hasClass('active')) {
+            $('#search-form').submit();
+        } else {
+            $('.search.container').addClass('active');
+        }
+    });
+    $('#search-close').on('click', function () {
+        $('.search.container input[type=text]').val('');
+        $('.search.container').removeClass('active');
+    });
+    // Submits the form if the user presses the return key
+    $("#search-form input[type=text]").keypress(function (event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $('#search-form').submit();
+        }
+    });
+
+    //AD global mobile menu
+    $('#navbar ul.nav').append($('.site-family li').clone().addClass('visible-xs'));
+
+    // special-content: region drop-down
+    $("[data-id=dropdown-region-dest]").append($("[data-id=dropdown-region-source]").detach());
+
+});
+
+
+// (function MobileHeaderMenu() {
+//   var mmTrigger = document.getElementById('header-middle').getElementsByClassName('navbar-toggle')[0];
+//   var mmTarget = document.getElementById(mmTrigger.getAttribute('data-target'));
+//   el.addEventListener('click', function() {
+//     if ( mmTarget.classList().indexOf('active') > -1 ) {
+//       return;
+//     } else {
+//       mmTarget.classList() += " active";
+//     }
+//   });
+// });
+
+
+/** BEGIN: AL-6966 **/
+/*if(!ADI.IsMobile())$('.leftCol').height()>$('.rightCol').height()?(function(){$('.rightCol').height($('.leftCol').height())})():(function(){$('.leftCol').height($('.rightCol').height())})();*/
+/** END: AL-6966 **/
+
+/** BEGIN: AL-6819 (MLH) **/
+
+(function SubscribeMega() {
+
+  if ( document.body.getElementsByClassName('subscribe-mega').length > 0) {
+    var invalidEmailMessage     = 'Please enter a valid e-mail address. (e.g., name@example.com)',
+        noServerResponseMessage = 'No response recieved from server.  Please try again later.',
+        subscribeEmailRegex     = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i,
+        $subscribeForm          = $(".subscribe-mega form"),
+        $subscribeAlert         = $('.subscribe-mega .alert'),
+        $subscribeInput         = $(".subscribe-mega input[type='text']"),
+        $subscribeSubmit        = $(".subscribe-mega input[type='submit']");
+
+    function updateSubscriberAlert(alertMessage, alertType) {
+        $subscribeAlert.first().removeClass('alert-success');
+        $subscribeAlert.first().removeClass('alert-warning');
+        $subscribeAlert.first().removeClass('alert-danger');
+        $subscribeAlert.first().removeClass('alert-hidden');
+        $subscribeAlert.first().addClass(alertType);
+        $subscribeAlert.first().html(alertMessage);
+        if (alertMessage === '') {
+            $subscribeSubmit[0].disabled = false;
+        } else {
+            $subscribeSubmit[0].disabled = true;
+        }
+    }
+
+    $subscribeInput[0].addEventListener("blur", function () {
+      if (!$subscribeInput[0].disabled) {
+        if (subscribeEmailRegex.test($subscribeInput[0].value)) {
+            updateSubscriberAlert('', 'alert-hidden');
+        } else {
+            updateSubscriberAlert(invalidEmailMessage, 'alert-danger');
+        }
+      }
+    });
+
+    $subscribeInput[0].addEventListener("keyup", function () {
+      if (!$subscribeInput[0].disabled && $subscribeAlert.first().hasClass('alert-danger') && subscribeEmailRegex.test($subscribeInput[0].value)) {
+          updateSubscriberAlert('', 'alert-hidden');
+      }
+    });
+
+    $subscribeForm[0].addEventListener("submit", function (e) {
+        e.preventDefault();
+        $subscribeInput[0].disabled = true;
+        $subscribeSubmit[0].disabled = true;
+        if (subscribeEmailRegex.test($subscribeInput[0].value) === true) {
+            $.ajax({
+              cache: false,
+              dataType : 'json',
+              type: 'POST',
+              url: document.getElementById('submit-url').value,
+              data: {
+                'eID': $subscribeForm.first().data('eid') || '',
+                'action': $subscribeForm.first().data('action') || '',
+                'email': $subscribeInput[0].value
+              }
+            })
+            .done(function (data) {
+                if (data.IsSuccess) {
+                    $subscribeInput[0].disabled = true;
+                    $subscribeSubmit[0].disabled = true;
+                    updateSubscriberAlert(data.Message, 'alert-success');
+                    // setTimeout(function(){$('#subscribe').toggle()},3000);
+                } else {
+                    $subscribeInput[0].disabled = false;
+                    $subscribeSubmit[0].disabled = false;
+                    updateSubscriberAlert(data.Message, 'alert-warning');
+                }
+            })
+            .fail(function (data) {
+                $subscribeInput[0].disabled = false;
+                $subscribeSubmit[0].disabled = false;
+                updateSubscriberAlert(noServerResponseMessage, 'alert-danger');
+            });
+        } else {
+            $subscribeInput[0].disabled = false;
+            $subscribeSubmit[0].disabled = true;
+            updateSubscriberAlert(invalidEmailMessage, 'alert-danger');
+        }
+    });
+  }
+})();
+/** END: AL-AL-6819 (MLH) **/
+
+
+
+
+/** RAQ Listing Page **/
+(function RAQs() {
+  var that = this;
+  if (document.body.getElementsByClassName('more-raqs').length === 1) {
+    if (document.body.getElementsByClassName('more-raqs')[0].getElementsByTagName('li').length>0) {
+      this.targetElements = document.body.getElementsByClassName('more-raqs')[0].getElementsByTagName('li'),
+      this.eventTriggerElement = document.body.querySelector('ul+button'),
+      this.visibleCounter = 0,
+      this.visibleStepAmount = 8,
+      this.activeClassName = 'active';
+      this.eventController = function(visibleCounterToken) {
+        if ( visibleCounterToken < that.targetElements.length ) {
+          for (var i=visibleCounterToken;i<(visibleCounterToken + that.visibleStepAmount);i++) {
+            that.targetElements[i].className += " " + that.activeClassName;
+            $(that.targetElements[i].getElementsByClassName('lazy')).lazyload({effect:'fadeIn'});
+            that.visibleCounter++
+            if ( that.visibleCounter === that.targetElements.length ) {
+              that.eventTriggerElement.parentNode.removeChild(that.eventTriggerElement);
+              return
+            }
+          }
+        }
+        return
+      },
+      this.init = (function() {
+        // document.addEventListener('DOMContentLoaded', function() {
+        $(document).ready( function() {
+          that.createEventListener = that.eventTriggerElement.addEventListener('click', function(e) {
+            that.eventController(that.visibleCounter)
+          });
+          that.eventController(that.visibleCounter);
+          $(that.targetElements).each(function() {
+            $(this).on('click', function(e) {
+              location = $(this).data('url');
+            });
+          });
+        });
+        return
+      })();
+    }
+  }
+  return
+})();
+
+
+
+
+/*************************/
+/**       -= 3 =-       **/
+/**   dialogue-home.js  **/
+/*************************/
+
+$(document).ready(function () {
+    // $('.home .articles .lg-nav li a').on("click", function(){
+    // 	var target = $(this).attr('href');
+    // 	$('.articles.archives .lg-nav li').removeClass('active');
+    // 	$(this).parent().addClass('active');
+    // 	$('#article-accordion .panel-collapse').removeClass('in').addClass('collapse');
+    // 	$("'"+target+"'").removeClass('collapse').addClass('in');
+    // });
+    $('.collapse-toggle').on("click", function () {
+        if ($(this).parent('div').hasClass('active')) {
+            $('.collapse-toggle').parent('div').removeClass('active');
+        } else {
+            var target = $(this).attr('href');
+            $('.collapse-toggle').parent('div').removeClass('active');
+            $(this).parent('div').addClass('active');
+            $('#article-accordion .panel-collapse').removeClass('in').addClass('collapse');
+            $("'" + target + "'").removeClass('collapse').addClass('in');
+        }
+    });
+
+    $("#raq-expander").on('click', function () {
+        $(".raq-wrapper").toggleClass("expanded");
+    });
+    $("#raq-close").on('click', function () {
+        $(".raq-wrapper").toggleClass("expanded");
+    });
+    if ($('#journal-slider')[0]) {
+        $('#journal-slider').slider();
+        $("#journal-slider").on("change", function (slideEvt) {
+            var overrun = parseFloat($(".scroll-panel").width());
+            var frame = parseFloat($(".scroll-panel")[0].scrollWidth);
+            var move = slideEvt.value.newValue * .01;
+            var scrollPos = move * (frame - overrun);
+            $(".scroll-panel").css({
+                "margin-left": "-" + scrollPos + "px"
+            });
+        });
+    }
+    $('#sc-more').on('click', function () {
+        $('.student-corner ul').addClass('more');
+        $(this).hide();
+        $('#sc-less').show();
+        $('#sc-less').css({
+            "display": "block"
+        });
+    });
+    $('#sc-less').on('click', function () {
+        $('.student-corner ul').removeClass('more');
+        $(this).hide();
+        $('#sc-more').show();
+    });
+    // MAIN HEADER SEARCH FUNCTIONS
+    // Progressive enhancement- if js is disabled the default submit button will be visible
+    $('.search.container input[type=submit]').addClass('hide');
+    $('.search.container #search-toggle').removeClass('hide');
+    $("#search-form input[type=text]").on('focus', function () {
+        $('.search.container').addClass('active');
+    });
+    $('#search-toggle').on('click', function () {
+        // OPTIONAL- If you want the magnifying glass button to simply toggle the active state,
+        // comment out the conditional and use this instead- $('.search.container').toggleClass('active');
+        // Otherwise the below test will toggle on the active state on first click,
+        // and then submit your search if you click the magnifier button inside the active search
+        if ($(this).parent().parent().hasClass('active')) {
+            $('#search-form').submit();
+        } else {
+            $('.search.container').addClass('active');
+        }
+    });
+    $('#search-close').on('click', function () {
+        $('.search.container input[type=text]').val('');
+        $('.search.container').removeClass('active');
+    });
+    // Submits the form if the user presses the return key
+    $("#search-form input[type=text]").keypress(function (event) {
+        if (event.which == 13) {
+            event.preventDefault();
+            $('#search-form').submit();
+        }
+    });
+    $('.modal-dialog').parent().on('show.bs.modal', function(e) {
+    	if(e.relatedTarget) {//AL-7769
+    		$(e.relatedTarget.attributes['data-target'].value).appendTo('body');
+    	}
+    });
+});
+
+
+/********************************/
+/**          -= 4 =-           **/
+/** dialogue-searchresults.js  **/
+/********************************/
+
+/*
+ * putting the json data in the file for now
+ * remove this once the server mime type issues
+ * have been sorted.
+ * */
+
+var jsonData = {
+    "archives": [{
+        "favorite-class": '', //"favorite",
+        "img-src": "",
+        "title": "Asynchronous Sample-rate Converters",
+        "presentation-date": "FEB 23 2010",
+        "date": 20100223,
+        "excerpt": "The CD player, an ideal storage medium for high-quality audio, has caused a once-revolutionary ida to be realized: that digital techniques are increasingly useful in the world of audio signals.",
+        "author": "Bob Adams",
+        "volume": "Volume 28, Number 1, 2010",
+        "shares": "152",
+        "likes": "162",
+        "favorite-icon": "fa-star"
+    }, {
+        "favorite-class": "",
+        "img-src": "",
+        "title": "Driving PIN Diodes: The Op-Amp Alternative",
+        "presentation-date": "JUL 1 2015",
+        "date": 20150701,
+        "excerpt": "PIN diodes, which sandwich a lightly doped intrinsic (I) region between heavily doped P and N regions, are used extensively in RF and microwave applications.",
+        "author": "Dave Babicz",
+        "volume": "Volume 44, Number 10, 2010",
+        "shares": "245",
+        "likes": "103",
+        "favorite-icon": "fa-star-o"
+    }, {
+        "favorite-class": "",
+        "img-src": "",
+        "title": "Fingerprint Sensor and Blackfin Processor Enhance Biometric-Identification Equipment Design",
+        "presentation-date": "MAR 22 2011",
+        "date": 20110322,
+        "excerpt": "The need for effective security, implemented efficiently, is manifest in today’s world.",
+        "author": "Angel Caballero",
+        "volume": "Volume 42, Number 3, 2008 ",
+        "shares": "245",
+        "likes": "103",
+        "favorite-icon": "fa-star-o"
+    }]
+};
+
+function sortData(jsonData, sortParam, sortDirection) {
+    //console.log(jsonData);
+    data = jsonData.archives.sort(function (a, b) {
+        if (sortDirection == "asc") return (a[sortParam] > b[sortParam]);
+        else return (b[sortParam] > a[sortParam]);
+    });
+    var wrapper = {
+        "archives": data
+    };
+    console.log(wrapper);
+    handlerData(wrapper);
+}
+
+//console.log(jsonData);
+function handlerData(jsonData) {
+    //console.log(jsonData);
+    if ($("#archive-li-template")[0]) {
+        var templateSource = $("#archive-li-template").html(),
+            template = Handlebars.compile(templateSource),
+            archiveHTML = template(jsonData);
+        $('ul.search-results').html(archiveHTML);
+    }
+}
+
+//delete the function below once server mimetype issues have been fixed
+function loadArchiveData(jsonData, sortParam, sortDirection) {
+    //$.getJSON( "/lib/scripts/dialogue-searchresults.json", function( data ) {
+    if (sortParam == null && sortDirection == null) {
+        handlerData(jsonData);
+    } else {
+        sortData(jsonData, sortParam, sortDirection);
+    }
+
+    //});
+}
+
+//uncomment the function below once server mimetype issues have been fixed
+//function loadArchiveData(sortParam, sortDirection){
+//	$.getJSON( "/lib/scripts/dialogue-searchresults.json", function( data ) {
+//		if(sortParam == null && sortDirection == null){
+//			handlerData(data);
+//		}
+//		else {
+//			sortData(data, sortParam, sortDirection);
+//		}
+//
+//    });
+//}
+
+function expandSearchFilters(jEl) {
+    var container = jEl.closest('.container');
+    var filters = container.find('.column-search-filters');
+    var results = container.find('.column-search-results');
+
+    filters.addClass('active');
+    filters.addClass('col-md-5');
+    results.addClass('col-md-7');
+    filters.removeClass('col-md-2');
+    results.removeClass('col-md-10');
+}
+
+function closeSearchFilters(jEl) {
+    var container = jEl.closest('.container');
+    var filters = container.find('.column-search-filters');
+    var results = container.find('.column-search-results');
+
+    filters.addClass('col-md-2');
+    results.addClass('col-md-10');
+    filters.removeClass('col-md-5');
+    results.removeClass('col-md-7');
+    filters.removeClass('active');
+    filters.find('.filter-category.active').removeClass('active');
+}
+
+$(document).ready(function () {
+    loadArchiveData(jsonData);
+
+    $('.collapse-search').on('click', function () {
+        closeSearchFilters($(this));
+    });
+
+    $('.search-filters .filter-category div:first-child').on('click', function () {
+        var that = $(this).parent();
+        if (that.hasClass('active')) {
+            that.removeClass('active');
+        } else {
+            that.addClass('active');
+            expandSearchFilters(that);
+        }
+    });
+
+    if ($('.column-search-results')[0]) {
+        $('html, body').animate({
+            scrollTop: $('.column-search-results').offset().top
+        }, 1000);
+    }
+});
+
+
+/**************************/
+/**        -= 5 =-       **/
+/**  dialogue-social.js  **/
+/**************************/
+
+$(document).ready(function () {
+    if ($(".editorial-social-widget")[0]) {
+        $('.editorial-social-widget').stickyWidget();
+    }
+    
+    //AL-7981
+    //$('.email-subscribe-toggle, .subscribe-mega-close').on('click', function () {
+       // $('.subscribe-mega').toggle();
+    //});
+
+    if (location.search.indexOf('subscribe') > -1) $('.email-subscribe-toggle').trigger('click');
+    //AL-7981
+});
+
+$.fn.stickyWidget = function () {
+    var $this = this,
+        $window = $(window),
+        $startPos = ($this.parent().offset().top - 180) - ($('header.dialogue').height())
+    setPosition = function () {
+        if ($(window).width() <= 768) {
+            $this.removeClass('docked');
+            $this.removeClass('floating');
+            $this.addClass('docked-mobile');
+        } else {
+            if ($window.scrollTop() >= $startPos) {
+                $this.removeClass('docked');
+                $this.addClass('floating');
+            } else {
+                $this.removeClass('floating');
+                $this.addClass('docked');
+            }
+        }
+    };
+    $window.resize(function () {
+        setPosition();
+    });
+    $window.scroll(setPosition);
+    setPosition();
+};
+
+
+// $('document').ready( function() {
+//   if( $('.dialogue .control-form input:text[data-data-source]').length > -1 ) {
+//     $('.dialogue .control-form input:text[data-data-source]').each(function() { ADI.Utilities.initSearchAutoComplete( $(this) ) } );
+//   }
+// });

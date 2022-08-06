@@ -1,0 +1,23 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  var personalizedContent = [],
+    results,
+    d = document,
+    s = _satellite.getToolsByType('sc')[0].getS();
+
+setTimeout(function () {
+    if (jQuery("div[data-personalizedcontent]").length > 0) {
+        jQuery.each(jQuery("div[data-personalizedcontent]"), function () {
+            personalizedContent.push(jQuery(this).attr("data-personalizedcontent"));
+        });
+        if (personalizedContent.length > 0) {
+            results = personalizedContent.join('|');
+            s.linkTrackVars = "list1,events";
+            s.linkTrackEvents = "event38";
+            s.list1 = results;
+            s.events = "event38";
+            s.tl(this, 'o', 'Personalization Component Loaded');
+            s.clearVars();
+        }
+    }
+}, 1000);
+});

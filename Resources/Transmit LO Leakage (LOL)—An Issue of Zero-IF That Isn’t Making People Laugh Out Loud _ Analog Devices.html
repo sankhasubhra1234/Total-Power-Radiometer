@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!-- saved from url=(0139)https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html -->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><!--<![endif]--><!-- SERVER: N3; web --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script id="Iperceptions_127192" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/CommentCard_127192.js.download" type="text/javascript"></script><script id="IPdef.acafac0d-3b8a-4d30-8a98-6cbcd5256d93" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/30155_637171223193002694" type="text/javascript"></script><script id="IPengine" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/IpEngine_v77.4.js.download" type="text/javascript"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/aquant.js.download" async="" type="text/javascript"></script><script async="" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/uwt.js.download"></script><script type="text/javascript" async="" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/teads-fellow.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/131537417531504" async=""></script><script async="" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/fbevents.js.download"></script><script type="text/javascript" async="" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/insight.min.js.download"></script><script type="text/javascript" async="" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/f.txt"></script><script type="text/javascript" async="async" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/f(1).txt"></script><script async="" id="demandbase_js_lib" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/cae72688.min.js.download"></script><script type="text/javascript" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/1.txt"></script><script type="text/javascript" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/1(1).txt"></script><script type="text/javascript" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/moatframe.js.download"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="robots" content="follow, index">
+    <title>Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud | Analog Devices</title>
+    
+    <meta name="description" content="There are several major advantages to the Zero-IF architecture, however there are also some challenges that need to be overcome. Transmit Local Oscillator Leakage (referred to as Tx LOL) is one such challenge">
+    <meta name="viewport" id="adiviewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="LOL, Low Leakage, RF mixer, ">
+    <meta name="breadcrumb" content="transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud">
+    <meta name="pageInfoType" content="AnalogDialogue Articles">
+    <meta name="customer-journey" content="Research">
+    <meta name="verify-v1" content="EH6D19wZGxG0dpmm3/iUbsWFvGU/hZp9p5Vs5UuoIXI=">
+    <meta name="y_key" content="fdd5bc59ae0e6340">
+    <meta name="msvalidate.01" content="739DEB4E2F14C3A552E581E88FA542AC">
+    <meta name="baidu-site-verification" content="cSddD8r1N7">
+    <meta name="yandex-verification" content="86a60d9bcaab43f0">
+    <meta name="google-site-verification" content="aVOSmh5Dsd1VpzYMM3a_ZvOQcjP9G5GDlvU-atf48ss">
+        <link rel="canonical" href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html">
+
+
+
+
+    <link rel="shortcut icon" href="https://www.analog.com/favicon.ico" type="image/x-icon">
+    
+
+    <link href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/css" rel="stylesheet">
+<link href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/bootstrap.css" rel="stylesheet" media="all">
+<link href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/global.css" rel="stylesheet" media="all">
+<link href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/print.css" rel="stylesheet" media="print">
+    <link href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/components.css" rel="stylesheet">
+
+    <script>
+        var isForceDesktopCookie = (document.cookie.indexOf("forcedesktopview") > -1) ? document.cookie.substring(document.cookie.indexOf("forcedesktopview"),
+            (document.cookie.indexOf(";", document.cookie.indexOf("forcedesktopview")) > -1) ?
+                document.cookie.indexOf(";", document.cookie.indexOf("forcedesktopview")) : document.cookie.length) : "";
+
+        isForceDesktopCookie = (isForceDesktopCookie) ? isForceDesktopCookie.split("=")[1] : '';
+
+        if ((window.innerWidth > 640 && window.innerWidth < 960) || isForceDesktopCookie) {
+            var mvp = document.getElementById('adiviewport');
+            mvp.setAttribute('content', 'width=1024');
+        }
+    </script>
+
+    <script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/jquery.min.js.download" type="text/javascript"></script>
+<script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/modernizr.js.download" type="text/javascript"></script>
+
+            <link href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/analog-dialogue.css" rel="stylesheet">
+
+
+
+    <link href="https://plus.google.com/+analogdevicesinc/posts" rel="publisher">
+
+    <script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/vendor.js.download" type="text/javascript"></script>
+
+    <script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/client.min.js.download"></script>
+<style type="text/css">.at-icon{fill:#fff;border:0}.at-icon-wrapper{display:inline-block;overflow:hidden}a .at-icon-wrapper{cursor:pointer}.at-rounded,.at-rounded-element .at-icon-wrapper{border-radius:12%}.at-circular,.at-circular-element .at-icon-wrapper{border-radius:50%}.addthis_32x32_style .at-icon{width:2pc;height:2pc}.addthis_24x24_style .at-icon{width:24px;height:24px}.addthis_20x20_style .at-icon{width:20px;height:20px}.addthis_16x16_style .at-icon{width:1pc;height:1pc}#at16lb{display:none;position:absolute;top:0;left:0;width:100%;height:100%;z-index:1001;background-color:#000;opacity:.001}#at_complete,#at_error,#at_share,#at_success{position:static!important}.at15dn{display:none}#at15s,#at16p,#at16p form input,#at16p label,#at16p textarea,#at_share .at_item{font-family:arial,helvetica,tahoma,verdana,sans-serif!important;font-size:9pt!important;outline-style:none;outline-width:0;line-height:1em}* html #at15s.mmborder{position:absolute!important}#at15s.mmborder{position:fixed!important;width:250px!important}#at15s{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);float:none;line-height:1em;margin:0;overflow:visible;padding:5px;text-align:left;position:absolute}#at15s a,#at15s span{outline:0;direction:ltr;text-transform:none}#at15s .at-label{margin-left:5px}#at15s .at-icon-wrapper{width:1pc;height:1pc;vertical-align:middle}#at15s .at-icon{width:1pc;height:1pc}.at4-icon{display:inline-block;background-repeat:no-repeat;background-position:top left;margin:0;overflow:hidden;cursor:pointer}.addthis_16x16_style .at4-icon,.addthis_default_style .at4-icon,.at4-icon,.at-16x16{width:1pc;height:1pc;line-height:1pc;background-size:1pc!important}.addthis_32x32_style .at4-icon,.at-32x32{width:2pc;height:2pc;line-height:2pc;background-size:2pc!important}.addthis_24x24_style .at4-icon,.at-24x24{width:24px;height:24px;line-height:24px;background-size:24px!important}.addthis_20x20_style .at4-icon,.at-20x20{width:20px;height:20px;line-height:20px;background-size:20px!important}.at4-icon.circular,.circular .at4-icon,.circular.aticon{border-radius:50%}.at4-icon.rounded,.rounded .at4-icon{border-radius:4px}.at4-icon-left{float:left}#at15s .at4-icon{text-indent:20px;padding:0;overflow:visible;white-space:nowrap;background-size:1pc;width:1pc;height:1pc;background-position:top left;display:inline-block;line-height:1pc}.addthis_vertical_style .at4-icon,.at4-follow-container .at4-icon{margin-right:5px}html>body #at15s{width:250px!important}#at15s.atm{background:none!important;padding:0!important;width:10pc!important}#at15s_inner{background:#fff;border:1px solid #fff;margin:0}#at15s_head{position:relative;background:#f2f2f2;padding:4px;cursor:default;border-bottom:1px solid #e5e5e5}.at15s_head_success{background:#cafd99!important;border-bottom:1px solid #a9d582!important}.at15s_head_success a,.at15s_head_success span{color:#000!important;text-decoration:none}#at15s_brand,#at15sptx,#at16_brand{position:absolute}#at15s_brand{top:4px;right:4px}.at15s_brandx{right:20px!important}a#at15sptx{top:4px;right:4px;text-decoration:none;color:#4c4c4c;font-weight:700}#at15sptx:hover{text-decoration:underline}#at16_brand{top:5px;right:30px;cursor:default}#at_hover{padding:4px}#at_hover .at_item,#at_share .at_item{background:#fff!important;float:left!important;color:#4c4c4c!important}#at_share .at_item .at-icon-wrapper{margin-right:5px}#at_hover .at_bold{font-weight:700;color:#000!important}#at_hover .at_item{width:7pc!important;padding:2px 3px!important;margin:1px;text-decoration:none!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover{margin:0!important}#at_hover .at_item.athov,#at_hover .at_item:focus,#at_hover .at_item:hover,#at_share .at_item.athov,#at_share .at_item:hover{background:#f2f2f2!important;border:1px solid #e5e5e5;color:#000!important;text-decoration:none}.ipad #at_hover .at_item:focus{background:#fff!important;border:1px solid #fff}.at15t{display:block!important;height:1pc!important;line-height:1pc!important;padding-left:20px!important;background-position:0 0;text-align:left}.addthis_button,.at15t{cursor:pointer}.addthis_toolbox a.at300b,.addthis_toolbox a.at300m{width:auto}.addthis_toolbox a{margin-bottom:5px;line-height:initial}.addthis_toolbox.addthis_vertical_style{width:200px}.addthis_button_facebook_like .fb_iframe_widget{line-height:100%}.addthis_button_facebook_like iframe.fb_iframe_widget_lift{max-width:none}.addthis_toolbox a.addthis_button_counter,.addthis_toolbox a.addthis_button_facebook_like,.addthis_toolbox a.addthis_button_facebook_send,.addthis_toolbox a.addthis_button_facebook_share,.addthis_toolbox a.addthis_button_foursquare,.addthis_toolbox a.addthis_button_linkedin_counter,.addthis_toolbox a.addthis_button_pinterest_pinit,.addthis_toolbox a.addthis_button_tweet{display:inline-block}.addthis_toolbox span.addthis_follow_label{display:none}.addthis_toolbox.addthis_vertical_style span.addthis_follow_label{display:block;white-space:nowrap}.addthis_toolbox.addthis_vertical_style a{display:block}.addthis_toolbox.addthis_vertical_style.addthis_32x32_style a{line-height:2pc;height:2pc}.addthis_toolbox.addthis_vertical_style .at300bs{margin-right:4px;float:left}.addthis_toolbox.addthis_20x20_style span{line-height:20px}.addthis_toolbox.addthis_32x32_style span{line-height:2pc}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact,.addthis_toolbox.addthis_pill_combo_style a{float:left}.addthis_toolbox.addthis_pill_combo_style a.addthis_button_tweet{margin-top:-2px}.addthis_toolbox.addthis_pill_combo_style .addthis_button_compact .at15t_compact{margin-right:4px}.addthis_default_style .addthis_separator{margin:0 5px;display:inline}div.atclear{clear:both}.addthis_default_style .addthis_separator,.addthis_default_style .at4-icon,.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300bs,.addthis_default_style .at300m{float:left}.at300b img,.at300bo img{border:0}a.at300b .at4-icon,a.at300m .at4-icon{display:block}.addthis_default_style .at300b,.addthis_default_style .at300bo,.addthis_default_style .at300m{padding:0 2px}.at300b,.at300bo,.at300bs,.at300m{cursor:pointer}.addthis_button_facebook_like.at300b:hover,.addthis_button_facebook_like.at300bs:hover,.addthis_button_facebook_send.at300b:hover,.addthis_button_facebook_send.at300bs:hover{opacity:1}.addthis_20x20_style .at15t,.addthis_20x20_style .at300bs{overflow:hidden;display:block;height:20px!important;width:20px!important;line-height:20px!important}.addthis_32x32_style .at15t,.addthis_32x32_style .at300bs{overflow:hidden;display:block;height:2pc!important;width:2pc!important;line-height:2pc!important}.at300bs{overflow:hidden;display:block;background-position:0 0;height:1pc;width:1pc;line-height:1pc!important}.addthis_default_style .at15t_compact,.addthis_default_style .at15t_expanded{margin-right:4px}#at_share .at_item{width:123px!important;padding:4px;margin-right:2px;border:1px solid #fff}#at16p{background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);z-index:10000001;position:absolute;top:50%;left:50%;width:300px;padding:10px;margin:0 auto;margin-top:-185px;margin-left:-155px;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#5e5e5e}#at_share{margin:0;padding:0}#at16pt{position:relative;background:#f2f2f2;height:13px;padding:5px 10px}#at16pt a,#at16pt h4{font-weight:700}#at16pt h4{display:inline;margin:0;padding:0;font-size:9pt;color:#4c4c4c;cursor:default}#at16pt a{position:absolute;top:5px;right:10px;color:#4c4c4c;text-decoration:none;padding:2px}#at15sptx:focus,#at16pt a:focus{outline:thin dotted}#at15s #at16pf a{top:1px}#_atssh{width:1px!important;height:1px!important;border:0!important}.atm{width:10pc!important;padding:0;margin:0;line-height:9pt;letter-spacing:normal;font-family:arial,helvetica,tahoma,verdana,sans-serif;font-size:9pt;color:#444;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABtJREFUeNpiZGBgaGAgAjAxEAlGFVJHIUCAAQDcngCUgqGMqwAAAABJRU5ErkJggg==);padding:4px}.atm-f{text-align:right;border-top:1px solid #ddd;padding:5px 8px}.atm-i{background:#fff;border:1px solid #d5d6d6;padding:0;margin:0;box-shadow:1px 1px 5px rgba(0,0,0,.15)}.atm-s{margin:0!important;padding:0!important}.atm-s a:focus{border:transparent;outline:0;transition:none}#at_hover.atm-s a,.atm-s a{display:block;text-decoration:none;padding:4px 10px;color:#235dab!important;font-weight:400;font-style:normal;transition:none}#at_hover.atm-s .at_bold{color:#235dab!important}#at_hover.atm-s a:hover,.atm-s a:hover{background:#2095f0;text-decoration:none;color:#fff!important}#at_hover.atm-s .at_bold{font-weight:700}#at_hover.atm-s a:hover .at_bold{color:#fff!important}.atm-s a .at-label{vertical-align:middle;margin-left:5px;direction:ltr}.at_PinItButton{display:block;width:40px;height:20px;padding:0;margin:0;background-image:url(//s7.addthis.com/static/t00/pinit00.png);background-repeat:no-repeat}.at_PinItButton:hover{background-position:0 -20px}.addthis_toolbox .addthis_button_pinterest_pinit{position:relative}.at-share-tbx-element .fb_iframe_widget span{vertical-align:baseline!important}#at16pf{height:auto;text-align:right;padding:4px 8px}.at-privacy-info{position:absolute;left:7px;bottom:7px;cursor:pointer;text-decoration:none;font-family:helvetica,arial,sans-serif;font-size:10px;line-height:9pt;letter-spacing:.2px;color:#666}.at-privacy-info:hover{color:#000}.body .wsb-social-share .wsb-social-share-button-vert{padding-top:0;padding-bottom:0}.body .wsb-social-share.addthis_counter_style .addthis_button_tweet.wsb-social-share-button{padding-top:40px}.body .wsb-social-share.addthis_counter_style .addthis_button_facebook_like.wsb-social-share-button{padding-top:21px}@media print{#at4-follow,#at4-share,#at4-thankyou,#at4-whatsnext,#at4m-mobile,#at15s,.at4,.at4-recommended{display:none!important}}@media screen and (max-width:400px){.at4win{width:100%}}@media screen and (max-height:700px) and (max-width:400px){.at4-thankyou-inner .at4-recommended-container{height:122px;overflow:hidden}.at4-thankyou-inner .at4-recommended .at4-recommended-item:first-child{border-bottom:1px solid #c5c5c5}}</style><style type="text/css">.at-branding-logo{font-family:helvetica,arial,sans-serif;text-decoration:none;font-size:10px;display:inline-block;margin:2px 0;letter-spacing:.2px}.at-branding-logo .at-branding-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAMAAAC67D+PAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////+GlNUkcc1QAAAB1JREFUeNpiYIQDBjQmAwMmkwEM0JnY1WIxFyDAABGeAFEudiZsAAAAAElFTkSuQmCC")}.at-branding-logo .at-branding-icon,.at-branding-logo .at-privacy-icon{display:inline-block;height:10px;width:10px;margin-left:4px;margin-right:3px;margin-bottom:-1px;background-repeat:no-repeat}.at-branding-logo .at-privacy-icon{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAMAAABR24SMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhQTFRF8fr9ot/xXcfn2/P5AKva////////AKTWodjhjAAAAAd0Uk5T////////ABpLA0YAAAA6SURBVHjaJMzBDQAwCAJAQaj7b9xifV0kUKJ9ciWxlzWEWI5gMF65KUTv0VKkjVeTerqE/x7+9BVgAEXbAWI8QDcfAAAAAElFTkSuQmCC")}.at-branding-logo span{text-decoration:none}.at-branding-logo .at-branding-addthis,.at-branding-logo .at-branding-powered-by{color:#666}.at-branding-logo .at-branding-addthis:hover{color:#333}.at-cv-with-image .at-branding-addthis,.at-cv-with-image .at-branding-addthis:hover{color:#fff}a.at-branding-logo:visited{color:initial}.at-branding-info{display:inline-block;padding:0 5px;color:#666;border:1px solid #666;border-radius:50%;font-size:10px;line-height:9pt;opacity:.7;transition:all .3s ease;text-decoration:none}.at-branding-info span{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.at-branding-info:before{content:'i';font-family:Times New Roman}.at-branding-info:hover{color:#0780df;border-color:#0780df}</style><style type="text/css">@media all and (max-width: 767px){ .tools-header .logomenu .iconbar:hover{background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;} .tools-header .logomenu .iconbar:hover .iconbar-icon{ background-position: -10px -40px;} .tools-header .logomenu .iconbar:hover .submenu{display:none}}</style><style type="text/css">@media all and (max-width: 767px){ .tools-header .logomenu .iconbar:hover{background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;} .tools-header .logomenu .iconbar:hover .iconbar-icon{ background-position: -10px -40px;} .tools-header .logomenu .iconbar:hover .submenu{display:none}}</style><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5c48963c64746d1924000029.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5cb760ca64746d02b7000677.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/s-code-contents-1e1faf4ca7b5be533164e434ee1d0be2b1427d97.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/js" async=""></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/js(1)" async=""></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/ip.json"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5a28103c64746d1efb00c620.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5a27f98e64746d133d00608d.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5a28248564746d3511008ea9.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5ae8760464746d2f4f000e63.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5d10cd9064746d4a4e003120.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5de55cce64746d1de10046df.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5df8f3b864746d396b003b46.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5d976b5c64746d59ae003a8c.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5cd080a864746d3d740023ef.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5cae54ba64746d6779005106.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5c5a46c864746d0e8300110e.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5d5d93ed64746d4af4000670.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5d5ea1fa64746d7147000c42.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5c41f15c64746d416301f360.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5cfea31564746d3f630016db.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5dd551e264746d2ba70008bb.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satellite-5cc08b9d64746d5d3b00061a.js.download"></script><script type="text/javascript" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/sessioncam.recorder.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/f(2).txt"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/f(3).txt"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/f(4).txt"></script><img width="0" height="0" alt="" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/track" style="position: absolute;"><script type="text/javascript" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/config.aspx"></script><link rel="stylesheet" type="text/css" href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/VisitorIdentificationCSS.aspx"><link rel="stylesheet" type="text/css" href="https://www.analog.com/layouts/system/VIChecker.aspx?tstamp=637171730776984339"></head>
+<body class="scroll-after-head" data-adi-spy="scroll" data-gr-c-s-loaded="true"><div id="cookie-consent-container" class="modal fade" role="dialog" data-id="gdpr-consent"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h4 class="modal-title"><img src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/ADI_Logo_AWP.png" alt="ADI"> Analog Devices Uses Cookies for Enhanced Online Performance </h4></div><div class="modal-body"><div class="short-description"><p> Some cookies are required for secure log-ins but others are optional for functional activities. Our data collection is used to improve our products and services. We recommend you accept our cookies to ensure you’re receiving the best performance and functionality our site can provide. For additional information you may view the <a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" data-id="cookie-details">cookie details</a>. Read more about our <a href="https://www.analog.com/en/about-adi/landing-pages/001/privacy_security_statement.html#cookies">privacy policy</a>. </p><a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" class="btn btn-success" data-id="consent"><em class="fa fa-check"></em> Accept and proceed </a></div><div class="long-description"><a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" class="btn btn-success" data-id="consent"><i class="fa fa-check"></i> Accept and proceed </a><p>The cookies we use can be categorized as follows:</p><dl><dt>Strictly Necessary Cookies:</dt><dd> These are cookies that are required for the operation of analog.com or specific functionality offered. They either serve the sole purpose of carrying out network transmissions or are strictly necessary to provide an online service explicitly requested by you. </dd><dt>Analytics/Performance Cookies:</dt><dd> These cookies allow us to carry out web analytics or other forms of audience measuring such as recognizing and counting the number of visitors and seeing how visitors move around our website. This helps us to improve the way the website works, for example, by ensuring that users are easily finding what they are looking for. </dd><dt>Functionality Cookies:</dt><dd> These cookies are used to recognize you when you return to our website. This enables us to personalize our content for you, greet you by name and remember your preferences (for example, your choice of language or region). Loss of the information in these cookies may make our services less functional, but would not prevent the website from working. </dd><dt>Targeting/Profiling Cookies:</dt><dd> These cookies record your visit to our website and/or your use of the services, the pages you have visited and the links you have followed. We will use this information to make the website and the advertising displayed on it more relevant to your interests. We may also share this information with third parties for this purpose. </dd></dl><a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" class="btn btn-link" data-id="decline">Decline cookies</a></div></div></div></div></div>
+
+        <ol class="list-inline nbm hide">
+                        <li>
+                            <span title="Analog Dialogue Technical Journal" class="ellipsis">
+                                <a href="https://www.analog.com/en/analog-dialogue.html">Analog Dialogue Technical Journal</a>
+                            </span>
+                        </li>
+                        <li>
+                            <span title="Articles" class="ellipsis">
+                                <a href="https://www.analog.com/en/analog-dialogue/articles.html">Articles</a>
+                            </span>
+                        </li>
+                        <li class="active">
+                            <span title="transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud" class="ellipsis">transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud</span>
+                        </li>
+
+        </ol>
+                    <script type="application/ld+json">
+                        {"@context":"http://schema.org","@type":"TechArticle","Author":[{"@type":"Person","Name":"Dave Frizelle","description":"Dave Frizelle works as an applications manager in the Transceiver Product Group at Analog Devices Limerick supporting the integrated transceiver family of products. He has worked at ADI since graduation in 1998. His previous engineering roles include six years working in Japan and Korea supporting the development and design-in of ADI components int"}],"Genre":"Analog Dialogue","Headline":"Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud","Keywords":"LOL, Low Leakage, RF mixer, ","Audience":"Engineers","publisher":[{"@type":"Organization","name":"Analog Devices, Inc."}],"Description":"There are several major advantages to the Zero-IF architecture, however there are also some challenges that need to be overcome. Transmit Local Oscillator Leakage (referred to as Tx LOL) is one such challenge"}
+                    </script>
+
+
+    
+    
+ <div id="header-insert"></div><header class="common" data-isnoncore="False"><div class="saveToMyAnalog visible-sm"><button id="myAnalogWidgetBtn" class="widget-Btn" name="myAnalog"><img class="add-plus" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/add.svg" alt="add"><!-- <img class="add-check" src="" alt="added" /> --><img class="myAnalog-saveTo" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/myAnalog-logo.svg" alt="myAnalog"></button></div><nav class="navbar navbar-default"><div class="container"><div class="navbar-collapse collapse"><ul class="site-family nav nav-bar-nav"><li><a class="adi-link" href="https://www.analog.com/en/index.html" target=""><strong>Analog.com</strong></a></li><li><a class="ez-link" href="https://ez.analog.com/" target=""><strong>Engineer</strong>Zone </a></li><li><a class="" href="https://www.analog.com/en/measureware.html" target="_blank"> MeasureWare </a></li><li class="last"><a class="wiki-link" href="https://wiki.analog.com/" target=""><strong>Wiki</strong></a></li></ul><ul class="regional nav nav-bar-nav navbar-right"><li><a href="https://shoppingcart.analog.com/ShoppingCartPage.aspx" target="" title="Cart" class="cart" name="Cart_8697d4f3-2cf9-4e3a-8fee-f7b834be2f9f"><strong></strong></a></li><li class="insert-language js-insert-language">
+                    <a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" data-toggle="dropdown" name="Region_7fe452b3-5379-47e8-aa31-5b3ddffd9ec6">
+
+                        <span data-toggle="dropdown" class="region"></span>
+                        <span class="arrow-down-transparent"></span>
+                    </a>
+
+        <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <ul>
+                <li><strong>Region</strong></li>
+                                <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/korea-welcome.html" target="" title="" name="Korea_154f8b08-52bc-4468-a8e2-90eae4f85b44">Korea</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/india-welcome.html" target="" title="" name="India_d28fd230-86d1-43a5-a921-270db9a11aef">India</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/taiwan-welcome.html" target="" title="" name="Taiwan_3146147e-7236-4692-b1a8-18240f3e01e0">Taiwan</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/singapore-welcome.html" target="" title="" name="Singapore_13a09ebe-e404-43e9-a609-c21f2b2da0a9">Singapore</a>
+                    </li>
+
+        </ul>
+            <ul class="setLang">
+                    <li>
+                        <strong>Languages</strong>
+                    </li>
+                                <li>
+                                    <a tabindex="-1" href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html" title="English" name="English_e33369c5-cf6f-415c-a408-fcf42c2a6c19"><strong>English</strong></a>
+                                </li>
+                                    <li>
+                                        <a tabindex="-1" href="https://www.analog.com/cn/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html" title="简体中文" name="Chinese_42e59427-ab8e-4088-8e78-b229a94f639d">简体中文</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="https://www.analog.com/jp/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html" title="日本語" name="Japanese_36645878-0d31-42ed-80fd-4101c6c03573">日本語</a>
+                                    </li>
+
+                </ul>
+
+        </div>
+
+
+
+            </li><li><a href="https://careers.analog.com/" target="" title="" class="" name="Careers_1ce06318-42f2-415b-9698-8e2c40f8adec"><strong><strong>Careers</strong></strong></a></li><li class="myAnalogLink"><a href="https://my.analog.com/en/app"><img src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/myanalog_logo.png" alt="myanalog"></a></li></ul></div></div></nav></header><header id="header"><div class="col-md-12 ie-support"><div><span class="support-desc">Browser Compatibility Issue: We no longer support this version of Internet Explorer. For optimal site performance we recommend you update your browser to the latest version.</span><span class="update-ie-button"><a href="https://support.microsoft.com/en-us/help/17621/internet-explorer-downloads" class="btn btn-primary anchor-class-ie">Update Microsoft Internet Explorer</a></span></div></div><section id="header-top--mobile" class="container hidden-sm hidden-md hidden-lg text-center bg-purple"><div class="row"><div class="col-xs-2"></div><div class="subscribe col-xs-8"><a href="javascript:void(0);" class="email-subscribe-toggle text-white" data-toggle="collapse" data-target="#subscribe"> Subscribe </a></div><div class="fb pull-right p-lg border-white border-solid border-left col-xs-2"><a href="https://www.facebook.com/AnalogDevicesInc" class="fb-subscribe-toggle text-white"><i class="fa fa-facebook"></i></a></div></div></section><section id="header-middle" class="container"><div class="row"><div class="col-xs-2 hidden-sm hidden-md hidden-lg visible-xs visible-sm collapsed" data-toggle="collapse" data-target="#mobile-menu"><div class="navbar-header"><button type="button" class="btn navbar-toggle"><span class="sr-only"> Toggle navigation </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span><span class="menu-label"> Menu </span></button></div></div><div class="col-xs-8 col-md-6 col-lg-5"><a href="https://www.analog.com/en/analog-dialogue.html" name="Analog Dialogue Header_62bd7dd1-d660-42de-a3b9-c868061b6470"><img src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/AD_Logo_Large.png" alt=""></a></div><div class="col-xs-2 col-lg-2 hidden-md collapsed" data-toggle="collapse" data-target="#mobile-search"><button type="button" class="btn search-icon hidden-sm hidden-md hidden-lg"></button></div><div class="col-xs-12 col-md-6 col-lg-5 collapse" id="mobile-search"><div class="control-form"><form class="clearfix" role="form" method="get" action="https://www.analog.com/en/analog-dialogue/search.html"><div class="form-group"><label for="text-global-search" class="sr-only"> Search Analog Dialogue </label><span class="twitter-typeahead" style="position: relative; display: inline-block;"><input type="text" class="form-control tt-hint" data-data-source="https://www.analog.com/en/client/Search/GetPredictiveSearchResultsJson?q=%QUERY&amp;moduleFacets={5114E673-A167-49DB-9040-CE955B257AEE}" data-autosuggest-text="Search" readonly="" autocomplete="off" spellcheck="false" tabindex="-1" dir="ltr" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0);"><input id="header-search" type="text" name="q" class="form-control tt-input" data-data-source="https://www.analog.com/en/client/Search/GetPredictiveSearchResultsJson?q=%QUERY&amp;moduleFacets={5114E673-A167-49DB-9040-CE955B257AEE}" data-autosuggest-text="Search" placeholder="Search Analog Dialogue" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;"><div class="tt-dataset tt-dataset-globalsearch-header-search"></div></div></span><button type="submit" class="btn search-icon"></button><button type="button" class="btn search-clear-icon">&nbsp;</button></div></form></div></div></div></section><section id="header-bottom" class="container"><div class="row"><div class="col-xs-12"><nav class="collapse" id="mobile-menu"><ul class="nav navbar-nav"><li><a href="https://www.analog.com/en/analog-dialogue/about-analog-dialogue.html">About</a></li><li><a href="https://www.analog.com/en/analog-dialogue/50-years.html">50 Years</a></li><li><a href="https://www.analog.com/en/analog-dialogue/archives.html">Archives</a></li><li><a href="https://www.analog.com/en/analog-dialogue/studentzone.html">StudentZone</a></li><li><a href="https://www.analog.com/en/analog-dialogue/raqs.html">RAQs</a></li><li class="dropdown"><a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" data-toggle="dropdown" class="resources"> Resources <span class="arrow-down-transparent"></span></a><ul class="dropdown-menu" role="menu" aria-labelledby="dLabel"><li><a href="https://www.analog.com/en/analog-dialogue/lt-journal.html">LT Journal Archive</a></li><li><a href="https://www.analog.com/en/search.html?q=*&amp;Filters=resource_type_l2_fac_s:948bcad75dda46938741bb491d391102_c1db6dd505a94fa09f7826c8b66a2bbb|resource_type_fac_s:948bcad75dda46938741bb491d391102">Technical Articles</a></li><li><a href="https://www.analog.com/en/search.html?q=*&amp;Filters=resource_type_l2_fac_s:f8eadfaf64cf48afb4ad8b54198f6f2a_ff0fe204950d410a86fcfbe07d0464d8|resource_type_fac_s:f8eadfaf64cf48afb4ad8b54198f6f2a">Technical Books</a></li><li><a href="https://www.analog.com/en/search.html?q=*&amp;Filters=resource_type_l2_fac_s:948bcad75dda46938741bb491d391102_4a29165280384f35b35deb62b1770e72|resource_type_fac_s:948bcad75dda46938741bb491d391102">FAQs</a></li><li><a href="https://www.analog.com/en/education/education-library/videos.html">Videos</a></li><li><a href="https://www.analog.com/en/education/education-library/webcasts.html">Webcasts</a></li><li><a href="https://www.analog.com/en/search.html?q=*&amp;Filters=resource_type_fac_s:5fbe1c0d279e4d188da6245019ffde24">Application Notes</a></li></ul></li><li class="hidden-sm hidden-md hidden-lg adi-link"><a href="https://www.analog.com/en/index.html"><strong>Analog.com</strong></a></li><li class="hidden-sm hidden-md hidden-lg ez-link"><a href="https://ez.analog.com/"><strong>Engineer</strong>Zone</a></li><li class="hidden-sm hidden-md hidden-lg "><a href="https://www.analog.com/en/measureware.html">MeasureWare</a></li><li class="hidden-sm hidden-md hidden-lg wiki-link"><a href="https://wiki.analog.com/"><strong>Wiki</strong></a></li></ul><ul class="nav navbar-nav navbar-right hidden-xs"><li class="subscribe"><a href="javascript:void(0);" class="email-subscribe-toggle" data-toggle="collapse" data-target="#subscribe">Subscribe</a></li><li class="fb"><a href="https://www.facebook.com/AnalogDevicesInc" class="fb-subscribe-toggle"><i class="fa fa-facebook"></i></a></li></ul></nav></div></div></section><div id="subscribe" class="subscribe-mega collapse"><div class="bg-purple pt-lg hidden-xs hidden-sm visible-md visible-lg"></div><div class="container"><div class="row"><div class="col-lg-8 col-md-8 col-sm-12 col-xs-12"><a href="javascript:void(0);" class="subscribe-mega-close" data-toggle="collapse" data-target="#subscribe"><i class="fa fa-close"></i></a><h3>Subscribe</h3><p>Provide us with your email address to get Analog Dialogue delivered directly to your inbox!</p><form class="form-inline" data-eid="216807155" data-action="sub" data-subscription-url="https://www.analog.com:443/en/client/Global/SubscribeToENewsletter"><div class="form-group"><input type="text" name="subscribe-email" placeholder="Enter Your Email Address"><input type="submit" name="submit" class="btn btn-default home-btn" value="Submit" id="adi_subscribe--submit-button"></div><div class="alert"></div></form><input type="hidden" id="submit-url" name="Analog Dialogue Header-62bd7dd1-d660-42de-a3b9-c868061b6470" value="https://www.analog.com:443/en/client/Global/SubscribeToENewsletter"></div><div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"><h3>Follow Us</h3><p>Join our Analog Devices Inc. community on Facebook to get exclusive content and much more!</p><a href="https://www.facebook.com/AnalogDevicesInc" class="fb-follow"><img src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/facebook-circle.png" name="Analog Dialogue Header_62bd7dd1-d660-42de-a3b9-c868061b6470"> Follow Us </a></div></div></div></div></header> 
+
+
+    <noscript>Enable javascript</noscript>
+    <div class="content" role="main">
+
+        
+
+        
+
+
+
+    <div>
+
+
+
+
+
+
+<div class="content article">
+        <div class="article-bg-heading"></div>
+    <div class="container article-container">
+        <div class="row">
+            <section class="col-lg-8 col-md-8 col-sm-12 col-xs-12 leftCol">
+                
+    <div class="article-info-container clearfix">
+        <div class="article-info-left">
+            <ul class="nav navbar-nav">
+                <li>
+                    <div class="rr rr-left">
+                            <div>JUL 2017</div>
+                    </div>
+                    <div class="rr rr-right">
+                        <div>
+VOL 51                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+                
+        <h1>Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud</h1>
+
+
+<p class="byline">
+            <a class="author_hyperlink" href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#author">
+                    by
+<strong>Dave Frizelle</strong>            </a>
+            <span class="download">
+                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                    <span>
+                        <a href="https://www.analog.com/media/en/analog-dialogue/volume-51/number-3/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.pdf" target="_blank">Download PDF</a>
+                    </span>
+            </span>
+
+</p>
+    <article>
+        <h3>Introduction</h3>
+<p>There are several major advantages to zero-IF architecture. However, there are also some challenges that need to be overcome. Transmit local oscillator leakage (referred to as transmit LOL) is one such challenge. Uncorrected, transmit LOL will produce an unwanted emission within the desired transmission, potentially breaking system specifications. This article discusses the issue of transmit LOL and examines the techniques used to eliminate it, as implemented in ADI’s RadioVerse™ transceiver family (which includes the <a href="https://www.analog.com/en/products/AD9371.html">AD9371</a>; see <a href="https://www.analog.com/en/applications/technology/sdr-radioverse-pavilion-home.html">ADI RadioVerse Website</a> for more details). If transmit LOL can be reduced to a low enough level that it no longer causes system or performance issues, perhaps people can learn to laugh out loud about LOL!</p>
+<h3>What Is LOL?</h3>
+<p>An RF mixer has two input ports and one output port, as shown in Figure 1. The ideal mixer would produce an output that is the product of the two inputs. In frequency terms, the output should be F<sub>IN</sub> + F<sub>LO</sub> and F<sub>IN&nbsp;</sub>– F<sub>LO</sub>, nothing else. If either input is undriven there will be no output.</p>
+<figure><img alt="Figure 1" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_01.png" class="img-responsive"><figcaption>Figure 1. Ideal mixer.</figcaption></figure>
+<p>In Figure 1, F<sub>IN</sub> is set to F<sub>BB</sub> with a baseband frequency of 1 MHz and F<sub>LO</sub> is set to F<sub>LO </sub>with a local oscillator frequency of 500 MHz. If the mixer were ideal it would produce an output that comprises two tones: one at 499 MHz and one at 501 MHz. However, as shown in Figure 2, a real-world mixer will also produce some energy at F<sub>BB</sub> and F<sub>LO</sub>. The energy at F<sub>BB</sub> can be ignored because it is far away from the desired output and will be filtered out by the RF components located after the mixer output. Regardless of the energy at F<sub>BB</sub>, the energy at F<sub>LO</sub> can be a problem. It is very close to or within the desired output signal and difficult or impossible to remove by filtering, since the filtering would also filter the desired signal. It is this unwanted energy at F<sub>LO</sub> that is referred to as LOL. The local oscillator (LO), which drives the mixer, has leaked to the mixer’s output port. There are also other paths for the LO to leak to the system output, such as through power supplies or across the silicon itself. Regardless of how the LO leaks out, it can be referred to as LOL.</p>
+<figure><img alt="Figure 2" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_02.png" class="img-responsive"><figcaption>Figure 2. Real-world mixer.</figcaption></figure>
+<p>In a real-IF architecture where only one sideband is to be transmitted, it is possible to resolve LOL by using RF filtering. In contrast, in a zero-IF architecture where both sidebands are to be transmitted, the LOL sits in the middle of the desired output and presents a more difficult challenge (see Figure 3). Conventional filtering is no longer an option, because any filtering that would remove the LOL would also remove portions of the wanted transmission. Therefore, other techniques must be used to eliminate it. Otherwise, it will likely end up becoming an unwanted emission within the overall desired transmission.</p>
+<figure><img alt="Figure 3" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_03.png" class="img-responsive"><figcaption>Figure 3. Unwanted energy at F<sub>LO</sub> shown in red. This unwanted energy at F<sub>LO</sub> is called LOL.</figcaption></figure>
+<h3>Eliminating LO Leakage (also Called LOL Correction)</h3>
+<p>The elimination of LOL is achieved by generating a signal that is equal in amplitude but opposite in phase to the LOL, thus cancelling it, as shown in Figure 4. Assuming we know the exact amplitude and phase of the LOL, the cancellation signal can be generated by applying dc offsets to the transmitter’s inputs.</p>
+<figure><img alt="Figure 4" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_04.png" class="img-responsive"><figcaption>Figure 4. LO leakage and cancellation signals.</figcaption></figure>
+<h3>Generation of the Cancellation Signal</h3>
+<p>The complex mixer architecture lends itself well to the generation of the cancellation signal. Because quadrature signals at the LO frequency exist in the mixer (they are at the heart of how the complex mixer works),<sup>1 </sup>they allow for the generation of a signal at the LO frequency with any phase and amplitude.</p>
+<p>The quadrature signals that drive the complex mixer can be described as Sin(LO) and Cos(LO)—these are orthogonal signals at the LO frequency that drive the two mixers. To generate the cancellation signal, these orthogonal signals are added together with different weights. In mathematical terms, we can produce an output that is I × Sin(LO) + Q × Cos(LO). By applying different signed values in place of I and Q, the resulting sum will be at the LO frequency and can have any desired amplitude and phase. Examples are shown in Figure 5.</p>
+<figure><img alt="Figure 5" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_05.png" class="img-responsive"><figcaption>Figure 5. Examples of any phase and any amplitude cancellation signal being generated.</figcaption></figure>
+<p>The desired transmission signal will need to be applied to the transmitter’s inputs. By applying a dc bias to the transmission data, the output of the mixer will contain both the desired transmission signal and also the desired LOL cancellation signal. The intentionally generated cancellation signal will combine with the unwanted LOL and they will cancel, leaving only the desired transmission signal.</p>
+<h3>Observing the Transmit LOL</h3>
+<p>The transmit LOL is observed using an observation receiver, as shown in Figure 6. In this example, the observation receiver uses the same LO as the transmitter, so any transmit energy at the LO frequency will appear as dc at the output of the observation receiver.</p>
+<figure><img alt="Figure 6" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_06.png" class="img-responsive"><figcaption>Figure 6. Basic concepts of observation and correction of Tx<sub>LO</sub> leakage.</figcaption></figure>
+<p>The approach shown in Figure 6 has an inherent weakness: by using the same LO to transmit and observe, transmit LOL will appear as dc in the observation receiver’s output. The observation receiver itself will have some amount of dc due to component mismatch in the circuit, so the total dc output by the observation receiver will be the sum of the transmit LOL and the native dc offset that exists in the observation receiver. There are ways to overcome this issue, but a better approach is to use a different LO frequency for observation, thereby separating the native dc in the observation path from the transmit LOL observation result. This is shown in Figure 7 below.</p>
+<figure><br>
+<img alt="Figure 7" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_07.png" class="img-responsive"><figcaption>Figure 7. Using different LOs to transmit and observe.</figcaption></figure>
+<p>Because the transmission is being observed using a frequency other than transmit LO, energy at the transmit LO frequency will not appear at dc in the observation receiver. Instead, it will appear as a baseband tone whose frequency is equal to the difference between the transmit LO and the observation LO. DC native in the observation path will still appear at dc, so there will be total separation of observation dc and transmit LOL measurement results. Figure 8 illustrates this concept using single-mixer architecture for simplicity. The input to the transmitter is zero in this example, so the only output from the transmitter is transmit LOL. Frequency shifting is done after the observation receiver to move the transmit LOL observed energy to dc.</p>
+<figure><img alt="Figure 8" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_08.png" class="img-responsive"><figcaption>Figure 8. Separating observation receiver dc from Tx LOL.</figcaption></figure>
+<h3>Finding the Necessary Correction Values</h3>
+<p>The required correction values are found by taking the observation receiver’s output, dividing it by the transfer function from transmit input to observation receiver output, and comparing this result to the intended transmission. The transfer function in question is shown in Figure 9.</p>
+<figure><img alt="Figure 9" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_09.png" class="img-responsive"><figcaption>Figure 9. The transfer function from transmitter input to observation receiver output.</figcaption></figure>
+<p>The transfer function from the transmitter baseband input to the observation receiver baseband output is comprised of two components: amplitude scaling and phase rotation. Each is explained independently in more detail in the following sections.</p>
+<p>Figure 10 shows that the amplitude of the transmit signal reported by the observation receiver may not represent the actual amplitude of the transmit signal being transmitted if the loopback path from transmit output to observation receiver input has gain or attenuation in the path, or if the gain of the transmitter circuit were different from the gain of the observation receiver circuit.</p>
+<figure><img alt="Figure 10" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_10.png" class="img-responsive"><figcaption>Figure 10. Amplitude scaling due to attenuation in the loopback path.</figcaption></figure>
+<p>Now let’s consider phase rotation. It is important to realize that signals do not travel instantaneously from point A to point B. For example, signals travel through copper at approximately half the speed of light, meaning that a 3 GHz signal travelling along a copper strip has a wavelength of approximately 5 cm. This means that if the copper strip is probed with multiple oscilloscope probes spaced a few centimeters apart, the oscilloscope will show multiple signals that are out of phase with each other. Figure 11 illustrates this principle, showing three scope probes that are spaced out along a copper strip. The signal seen at each point is at a frequency of 3 GHz, but there is a phase difference between the three signals. </p>
+<p>Note that moving a single scope probe down the copper strip would not show this effect, as the scope would always trigger at 0<span>°</span>&nbsp;phase. It is only by using multiple probes that the relationship between distance and phase can be observed.</p>
+<figure><img alt="Figure 11" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_11.png" class="img-responsive"><figcaption>Figure 11. The relationship of distance and phase, a 5 cm trace, a 3 GHz signal, and probe points at 0 cm, 2 cm, and 4 cm.</figcaption></figure>
+<p>Just as there is a phase change along the copper strip, there will be a phase change from transmitter input to observation receiver output, as shown in Figure 12. It is essential that the LOL correction algorithm knows how much phase rotation has occurred for it to compute the correct correction values.</p>
+<figure><img alt="Figure 12" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_12.png" class="img-responsive"><figcaption>Figure 12: Phase rotation due to physical distance in the loopback path.</figcaption></figure>
+<h3>Determining the Transfer Function from Transmit Input to Observation Receiver Output</h3>
+<p>The transfer function shown in Figure 13 may be learned by applying an input to the transmitter and comparing it to the output from the observation receiver. However, some points need to be kept in mind. If a static (dc) signal is applied to the transmitter input, it will produce an output at the transmit LO frequency and the transmit LOL will combine with it. This will prevent the transfer function from being learned correctly. It should also be noted that the transmit output may be connected to an antenna, so intentionally applying signals to the transmitter input may not be allowed.</p>
+<figure><img alt="Figure 13" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/138872_Fig_13.png" class="img-responsive"><figcaption>Figure 13. Determining the transfer function from transmitter input to observation receiver output.</figcaption></figure>
+<p>To overcome these challenges, the ADI transceivers use an algorithm that applies a low level dc offset to the transmitted signal. The offset level is adjusted periodically and these perturbations will show up in the observation receiver’s outputs. The algorithm then analyzes the deltas in input values compared to the deltas in observed values, as outlined in Table 1. In this example there is no user signal being transmitted, but the method still holds in the presence of user signal.</p>
+<table cellspacing="2" style="width: 100%;">
+    <caption style="text-align: left; vertical-align: top; caption-side: top;">Table 1. The Deltas in Input Value Compared to the Deltas in Observed Value</caption>
+    <tbody>
+        <tr>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #ffffff; font-weight: bold; text-align: center; vertical-align: middle; background-color: #7c4a8b; width: 25%;"></td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #ffffff; font-weight: bold; text-align: center; vertical-align: middle; background-color: #acacac; width: 25%;">Tx Input Signal</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #ffffff; font-weight: bold; text-align: center; vertical-align: middle; background-color: #acacac; width: 25%;">Tx Output Port</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #ffffff; font-weight: bold; text-align: center; vertical-align: middle; background-color: #acacac; width: 25%;">Observation Receiver Output</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;">Case 1</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;">DC offset 1</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;">Tx<sub>LO</sub> 1 + Tx LOL</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;">(Tx<sub>LO</sub> 1 + Tx LOL) × transfer function</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;">Case 2</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;">DC offset 2</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;">Tx<sub>LO</sub> 2 + Tx LOL</td>
+            <td style="padding: 10px 7px; border-top: 2px solid #ffffff; border-right: 2px solid #ffffff; color: #636363; font-weight: normal; text-align: center; background-color: #f5f5f5;"><span style="background-color: #f5f5f5; text-align: center; color: #636363;">(Tx<sub>LO</sub> 2 + Tx LOL) × transfer function</span></td>
+        </tr>
+    </tbody>
+</table>
+<p>By performing a subtraction of the two cases, the constant transmit LOL is eliminated from the equation and the transfer function can be learned. The number of cases can be expanded to more than two, giving many independent results that can be averaged to increase the accuracy.</p>
+<h3>Summary</h3>
+<p>The LOL correction algorithm will learn the transfer function from transmit input to observation receiver output. It will then take the observation receiver’s output and divide it by the transfer function to refer it to the transmitter’s input. By comparing the dc levels in the intended transmission to the dc levels in the observed transmission, the transmit LOL will be determined. Finally, the algorithm will compute the necessary correction values to eliminate the transmit LOL and apply them as a dc bias to the desired transmission data.</p>
+<p>This article provides an overview of one aspect of the algorithms used in ADI’s RadioVerse transceivers. For a broader understanding on the concepts of zero-IF and algorithms, see this article on complex RF mixers.<sup>1</sup></p>
+                <h3>
+                    References
+                </h3>
+<sup>1.</sup> David Frizelle and Frank Kearney. “<a href="https://www.analog.com/en/analog-dialogue/articles/complex-mixers-zif-architecture-advanced-algorithms-black-magic-next-generation-sdr-transceivers.html">Complex RF Mixers, Zero-IF Architecture, and Advanced Algorithms: The Black Magic in Next-Generation SDR Transceivers</a>.” <em>Analog Dialogue</em>, Vol. 51, February, 2017.            </article>
+
+
+
+
+
+    <article>
+                <h3 id="author">Author</h3>
+        
+            <section class="author clearfix">
+                    <img class="img-responsive" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/dave-frizelle.jpg" alt="Dave Frizelle">
+                <div class="author-details">
+                        <p class="name">Dave Frizelle</p>
+                    <p class="social">
+                            <a href="mailto:david.frizelle@analog.com" id="dialogue-author-email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                                                                    </p>
+                        <p class="details">
+                            Dave Frizelle works as an applications manager in the Transceiver Product Group at Analog Devices Limerick supporting the integrated transceiver family of products. He has worked at ADI since graduation in 1998. His previous engineering roles include six years working in Japan and Korea supporting the development and design-in of ADI components into advanced consumer products.
+                        </p>
+                </div>
+            </section>           
+    </article>
+
+            </section>
+            <section class="col-lg-4 col-md-4 col-sm-12 col-xs-12 rightCol">
+                <aside>
+                    
+
+    <section class=" related-products">
+            <h2>Related Products</h2>
+        <ul>
+                    <li>
+                            <a href="https://www.analog.com/en/products/ad9364.html" target="_blank">AD9364</a>
+                                                    <p class="product-details">1 x 1 RF Agile Transceiver</p>
+                    </li>
+                    <li>
+                            <a href="https://www.analog.com/en/products/ad9361.html" target="_blank">AD9361</a>
+                                                    <p class="product-details">RF Agile Transceiver</p>
+                    </li>
+                    <li>
+                            <a href="https://www.analog.com/en/products/ad9371.html" target="_blank">AD9371</a>
+                                                    <p class="product-details"></p><p>Integrated, Dual RF Transceiver with Observation Path</p><p></p>
+                    </li>
+        </ul>
+    </section>
+
+    <section class="related-products">
+            <h2>Related Categories</h2>
+        <ul>
+                    <li>
+                        <a href="https://www.analog.com/en/products/rf-microwave/mixers.html" target="_blank">RF Mixers</a>
+                    </li>
+                    <li>
+                        <a href="https://www.analog.com/en/products/rf-microwave.html" target="_blank">RF &amp; Microwave</a>
+                    </li>
+        </ul>
+    </section>
+
+    <section class="related-products">
+            <h2>Related Markets &amp; Technology</h2>
+        <ul>
+                    <li>
+                        <a href="https://www.analog.com/en/applications/technology/sdr-radioverse-pavilion-home/wideband-transceivers/wideband-support.html" target="_blank">Wideband Support</a>
+                    </li>
+        </ul>
+    </section>
+
+                </aside>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+        <div class="special-content">
+            <li class="dropdown dropdown-region">
+                    <a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" data-toggle="dropdown" name="Region_7fe452b3-5379-47e8-aa31-5b3ddffd9ec6">
+
+                        <span data-toggle="dropdown" class="region"></span>
+                        <span class="arrow-down-transparent"></span>
+                    </a>
+
+        <div class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <ul>
+                <li><strong>Region</strong></li>
+                                <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/korea-welcome.html" target="" title="" name="Korea_154f8b08-52bc-4468-a8e2-90eae4f85b44">Korea</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/india-welcome.html" target="" title="" name="India_d28fd230-86d1-43a5-a921-270db9a11aef">India</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/taiwan-welcome.html" target="" title="" name="Taiwan_3146147e-7236-4692-b1a8-18240f3e01e0">Taiwan</a>
+                    </li>
+                    <li>
+                        <a tabindex="-1" href="https://www.analog.com/en/landing-pages/001/singapore-welcome.html" target="" title="" name="Singapore_13a09ebe-e404-43e9-a609-c21f2b2da0a9">Singapore</a>
+                    </li>
+
+        </ul>
+            <ul class="setLang">
+                    <li>
+                        <strong>Languages</strong>
+                    </li>
+                                <li>
+                                    <a tabindex="-1" href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html" title="English" name="English_e33369c5-cf6f-415c-a408-fcf42c2a6c19"><strong>English</strong></a>
+                                </li>
+                                    <li>
+                                        <a tabindex="-1" href="https://www.analog.com/cn/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html" title="简体中文" name="Chinese_42e59427-ab8e-4088-8e78-b229a94f639d">简体中文</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="https://www.analog.com/jp/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html" title="日本語" name="Japanese_36645878-0d31-42ed-80fd-4101c6c03573">日本語</a>
+                                    </li>
+
+                </ul>
+
+        </div>
+
+
+
+            </li>
+        </div>
+        <div class="special-content">
+                    
+                    
+                    
+        </div>
+
+</div>
+<iframe id="ifrmPrint" style="width: 0pt; height: 0pt; border: none;" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/saved_resource.html"></iframe>
+<iframe id="trackVisitor" class="track-visitor-class" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/TrackExternal.html"></iframe>
+<label for="itemId" class="hidden"></label>
+<input type="hidden" id="itemId" name="itemId" value="3941c7bd-78de-4088-b55f-e34bd977ebf4">
+
+
+
+
+ <a class="backtotop" href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#header">&nbsp;</a><footer class="footer" id="footer" data-session="https://analogb2c.b2clogin.com/tfp/analogb2c.onmicrosoft.com/b2c_1a_adi_signuporsigninwithkmsi/oauth2/v2.0/authorize?client_id=63aa5bf0-fc9b-4ab2-8f60-ad90b639eb32&amp;nonce=0c6ead94-f4e4-42bf-b761-fe32f97aa7bb&amp;redirect_uri=https://my.analog.com/app/session-exist&amp;scope=https://analogb2c.onmicrosoft.com/myanalog/read&amp;response_type=code&amp;prompt=none"><div class="container"><div class="row footer-bottom" name="adi_footer_bottom"><div class="col-md-12 clearfix"><div class="col-md-2" name="Footer_Social_Media_Links_eee39a50-a6b0-4426-9c6a-78dd1523c507"><div class="row"><div class="sociallinks"><span class="header4"><a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" class="footer-collapse dropdown-toggle" data-toggle="dropdown">Social<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></a></span><ul class="pull-right list-social footer-dropdown-menu"><li class="ez-color"><a href="https://ez.analog.com/" target="" title="Join Analog Devices on EngineerZone"></a></li><li class="instagram-color"><a href="https://www.instagram.com/analogdevices/?hl=en" target="_blank" title="Follow us on Instagram"></a></li><li class="facebook-color"><a href="http://www.facebook.com/AnalogDevicesInc" target="_blank" title="Visit Analog Devices on Facebook"></a></li><li class="twitter-color"><a href="https://twitter.com/#!/adi_news" target="_blank" title="Follow Analog Devices on Twitter"></a></li><li class="linkedin-color"><a href="http://www.linkedin.com/company/3450" target="_blank" title="Join Analog Devices on LinkedIn"></a></li><li class="youtube-color"><a href="http://www.youtube.com/user/AnalogDevicesInc" target="_blank" title="View Analog Devices on YouTube"></a></li></ul></div></div></div><div class="col-md-4 quick" name="adi_footer_quicklinks"><div class="quicklinks"><span class="header4"><a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html#" class="footer-collapse dropdown-toggle" data-toggle="dropdown">Quick Links<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></a></span><ul class="list-unstyled footer-dropdown-menu"><li class=""><a href="https://www.analog.com/en/about-adi.html" target="" title="About ADI" name="About_ADI_a18d047b-e6c9-43eb-ac39-f2433cb55f1f">About ADI</a></li><li class=""><a href="https://www.analog.com/en/about-adi/partners.html" target="_blank" title="" name="Partners_5e47a5a2-8dd5-4b8d-b949-bb78e7c8b52d">Partners</a></li><li class=""><a href="https://www.analog.com/en/analog-dialogue.html" target="" title="Analog Dialogue" name="Analog_Dialogue_41ade380-bf31-4791-8015-2a7cc8211984">Analog Dialogue</a></li><li class=""><a href="https://careers.analog.com/" target="" title="Careers" name="Careers_d3bc9a5a-eaac-4f74-a4eb-9588b983bae8">Careers</a></li><li class=""><a href="https://www.analog.com/en/about-adi/contact-us.html" target="" title="Contact us" name="Contact_us_95dc0fe9-dc2d-4f85-81fa-1a49595a3d0d">Contact us</a></li><li class=""><a href="http://investor.analog.com/" target="" title="Investor Relations" name="Investor_Relations_2ffc3744-f828-4aa2-8db4-3e3bb8854bb7">Investor Relations</a></li><li class=""><a href="https://www.analog.com/en/about-adi/news-room.html" target="" title="News Room" name="News_Room_0b77676a-6e78-428a-b729-3b12f20cb0d0">News Room</a></li><li class=""><a href="https://www.analog.com/en/about-adi/quality-reliability.html" target="" title="Quality &amp; Reliability" name="Quality_N_Reliability_9f2071ca-97a4-4e6c-85f8-a28480bc998c">Quality &amp; Reliability</a></li><li class=""><a href="https://www.analog.com/en/about-adi/corporate-information/sales-distribution.html" target="" title="Sales &amp; Distributors" name="Sales_N_Distributors_c71f89eb-3bca-4ca9-a79d-73a1172cfa1a">Sales &amp; Distribution</a></li><li class=""><a href="https://www.analog.com/en/landing-pages/001/analog-garage.html" target="" title="" name="analog-garage_be449ed0-c547-481c-a209-e5816db3b6ce">Analog Garage</a></li></ul></div></div><!--[if gt IE 8]><!--><div id="footer-region-language" class="col-md-2 visible-phone"><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo"> Global<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></span></div><div id="collapseTwo" class="accordion-body collapse"><div class="accordion-inner"><div class="global-message"> Please Select a Region </div><div class="accordion" id="accordion2"><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#India"> India<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></span></div><div id="India" class="accordion-body collapse"><div class="accordion-inner"><a href="https://www.analog.com/en/landing-pages/001/india-welcome.html"><img data-image-source="//assets.analog.com/images/map_india.jpg" class="mobile-images" width="100%" alt="India"></a></div></div></div><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Korea"> Korea<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></span></div><div id="Korea" class="accordion-body collapse"><div class="accordion-inner"><a href="https://www.analog.com/en/landing-pages/001/korea-welcome.html"><img data-image-source="//assets.analog.com/images/map_korea.jpg" class="mobile-images" width="100%" alt="Korea"></a></div></div></div><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Singapore"> Singapore<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></span></div><div id="Singapore" class="accordion-body collapse"><div class="accordion-inner"><a href="https://www.analog.com/en/landing-pages/001/singapore-welcome.html"><img data-image-source="//assets.analog.com/images/map_singapore.jpg" class="mobile-images" width="100%" alt="Singapore"></a></div></div></div><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#Taiwan"> Taiwan<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></span></div><div id="Taiwan" class="accordion-body collapse"><div class="accordion-inner"><a href="https://www.analog.com/en/landing-pages/001/taiwan-welcome.html"><img data-image-source="//assets.analog.com/images/map_taiwan.jpg" class="mobile-images" width="100%" alt="Taiwan"></a></div></div></div></div></div></div></div><div class="accordion-group"><div class="accordion-heading"><span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#collapseLanguage"> Language<span class="glyphicon pull-right glyphicon-chevron-down visible-phone"></span></span></div><div id="collapseLanguage" class="accordion-body collapse"><div class="accordion-inner"><div class="global-message">Please Select a Language</div><div class="accordion language-footer-container" id="accordion4"><div class="accordion-group language-footer-block">
+                        <div class="accordion-heading">
+                            <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#English">
+                                English<span class="glyphicon  pull-right glyphicon-chevron-down visible-phone"></span>
+                            </span>
+                        </div>
+                        <div id="English" class="accordion-body collapse">
+                            <div class="accordion-inner language-footer">
+                                    <a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html">
+                                        <img data-image-source="//assets.analog.com/images/language_en.jpg" class="mobile-images" width="100%" alt="English">
+                                    </a>
+                            </div>
+                        </div>
+                    </div><div class="accordion-group language-footer-block">
+                        <div class="accordion-heading">
+                            <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#简体中文">
+                                简体中文<span class="glyphicon  pull-right glyphicon-chevron-down visible-phone"></span>
+                            </span>
+                        </div>
+                        <div id="简体中文" class="accordion-body collapse">
+                            <div class="accordion-inner language-footer">
+                                    <a href="https://www.analog.com/cn/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html">
+                                        <img data-image-source="//assets.analog.com/images/language_cn.jpg" class="mobile-images" width="100%" alt="简体中文">
+                                    </a>
+                            </div>
+                        </div>
+                    </div><div class="accordion-group language-footer-block">
+                        <div class="accordion-heading">
+                            <span class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#日本語">
+                                日本語<span class="glyphicon  pull-right glyphicon-chevron-down visible-phone"></span>
+                            </span>
+                        </div>
+                        <div id="日本語" class="accordion-body collapse">
+                            <div class="accordion-inner language-footer">
+                                    <a href="https://www.analog.com/jp/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html">
+                                        <img data-image-source="//assets.analog.com/images/language_jp.jpg" class="mobile-images" width="100%" alt="日本語">
+                                    </a>
+                            </div>
+                        </div>
+                    </div></div></div></div></div></div><!--<![endif]--><div class="col-md-2 visible-desktop"><span class="header4">Languages</span><div class="quicklinks" name="adi_footer_languages_quicklinks"><ul class="list-unstyled"><li><a href="https://www.analog.com/en/" target="" title="English" name="English_2c0dae2c-e343-42a4-8ce2-cd8350c8ec55">English</a></li><li><a href="https://www.analog.com/cn/" target="" title="简体中文" name="Chinese_8f00bfa0-df96-41b4-b43b-9937d78c4452">简体中文</a></li><li><a href="https://www.analog.com/jp/" target="" title="日本語" name="Japanese_28d4203f-f1f1-4a94-acf1-e5023759cda3">日本語</a></li><li><a href="https://www.analog.com/ru/" target="" title="Руccкий" name="Russian_08ad222c-9e19-46af-997d-9e7a12a99c0b">Руccкий</a></li></ul></div></div><div class="col-md-4 visible-desktop"><div class="newsletter" name="Callouts_Newsletter_b24a4bad-d9d0-4b9a-bb7d-149bf3a624cf"><span class="header4">Newsletters</span><p>Interested in the latest news and articles about ADI products, design tools, training and events? Choose from one of our 12 newsletters that match your product area of interest, delivered monthly or quarterly to your inbox.</p><div class="control-form"><a class="btn btn-primary" name="Newsletter_Sign Up_b24a4bad-d9d0-4b9a-bb7d-149bf3a624cf" href="https://my.analog.com/en/app/subscriptions">Sign Up</a></div></div><div class="switch-mobile-view"><a href="https://www.analog.com/en/analog-dialogue/articles/transmit-lo-leakage-lol-an-issue-of-zero-if-that-isn-t-making-people-laugh-out-loud.html" id="btn-force-mobile-view" class="btn btn-primary">Switch to mobile view</a></div></div></div><div class="col-md-12 clearfix visible-phone"><div class="container text-center"><button type="button" id="btn-force-desktop-view" class="btn btn-primary"> Desktop View </button></div></div><div class="col-md-12"><div class="row copyright" name="adi_footer_copyright"><div class="col-md-5 visible-phone"><div data-src="//assets.analog.com/images/footer_logo.gif" class="visible-phone"><img src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/footer_logo.gif" alt="Analog Logo" width="100"></div><span class="copy">©</span> 1995 - 2020 Analog Devices, Inc. All Rights Reserved <span id="CN-ICP-number" style="display:none;">沪ICP备09046653号</span></div><ul class="list-inline pull-left visible-desktop links"><li> © </li><li> 1995 - 2020 Analog Devices, Inc. All Rights Reserved </li><li id="CN-ICP-number"> 沪ICP备09046653号 </li></ul><ul class="list-inline pull-right visible-desktop" name="adi_footer_horizontal_links"><li class=""><a href="https://www.analog.com/en/sitemap.html" target="" title="Sitemap" name="Sitemap_b8effdcc-bc20-42ab-af7b-e2a546667326">Sitemap</a></li><li class=""><a href="https://www.analog.com/en/about-adi/landing-pages/001/privacy_security_statement.html" target="" title="Privacy &amp; Security" name="Privacy_N_Security_7bd22b0b-d67b-4530-ae22-266045bc4d73">Privacy &amp; Security</a></li><li class=""><a href="https://www.analog.com/en/landing-pages/001/privacy-settings.html" target="" title="Privacy Settings" name="Privacy_Settings_c3370251-faa8-4c65-b2b4-1bfeab8d75ea">Privacy Settings</a></li><li class=""><a href="https://www.analog.com/en/about-adi/landing-pages/001/terms_of_use.html" target="" title="Terms of use" name="Terms_of_Use_fd8a5f4a-6e7a-4d1d-9605-56488afcf6c6">Terms of use</a></li></ul></div></div></div></div><script type="text/javascript"> var ADIAssetsPath = "//assets.analog.com"; var cookiesToDelete = [ { "Domain": ".analog.com", "Cookie": [ "__qca", "adiHintCookie", "bCrumbs", "dmdbase_cdc", "ELOQUA", "FedAuthentication", "gpv_p14", "gpv_v100", "myAnalog_id", "Mysite_info", "s_cc", "s_dfa", "s_fid", "s_gad", "s_gpv", "s_invisit", "s_lv", "s_nr", "s_ptc", "s_sq", "s_vi", "s_vnum", "es_visited", "AdiSessionAuthCookie", "AdiSecureDlCookie" ] }, { "Domain": ".investor.analog.com", "Cookie": [ "ADI_BRIEFCASE", "ADI_SESSION" ] }, { "Domain": "careers.analog.com", "Cookie": [ "in_ref", "Per_UniqueID", "PLAY_SESSION", "VISITED_COUNTRY", "VISITED_LANG", "ext_trk", "_gat_UA-84784380-31" ] }, { "Domain": "distiadmin-dev.corpnt.analog.com", "Cookie": [ "ASP.NET_SessionId" ] }, { "Domain": "distributor-dev.corpnt.analog.com", "Cookie": [ "FedAuth1", "FedAuth", "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "_sdsat_Email Address", "dmdbase", "_sdsat_DevQaOrProd" ] }, { "Domain": "ez.analog.com", "Cookie": [ "containerSecurityToken", "jive.security.context", "X-JCAPI-Token ", "BIGipServerpool_vanity_analog.jiveon.com", "JSESSIONID", "jive.login.ts" ] }, { "Domain": "form.analog.com", "Cookie": [ "AdiSessionAuthCookie", "FedAuth1", "FedAuth", "ASP.NET_SessionId", "AlteonP", "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "_sdsat_DevQaOrProd", "adicftlassetdata", "AdiSessionAuthCookie", "_sdsat_Membership Status", "_sdsat_Email Address" ] }, { "Domain": "registration.analog.com", "Cookie": [ "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "registration-dev.corpnt.analog.com", "_sdsat_Email Address", "FedAuth1", "FedAuth", "_sdsat_Membership Status", "AlteonP", "ASP.NET_SessionId" ] }, { "Domain": "sdk.analog.com", "Cookie": [ "dmdbase", "_sdsat_DevQaOrProd", "ipe_30155_fov", "ipe.30155.pageViewedCount", "_sdsat_Membership Status", "_sdsat_Email Address", "ipe_s", "AdiSessionAuthCookie", "FedAuth1" ] }, { "Domain": "shoppingcart.analog.com", "Cookie": [ "ipe_30155_fov", "ipe.30155.pageViewedCount", "ipe_s", "dmdbase", "_sdsat_DevQaOrProd", "_sdsat_Membership Status", "_sdsat_Email Address", "ASP.NET_SessionId", "adiSessionAuth", "FedAuth", "FedAuth1", "analogp", "USERID", "SHOPPINGCARTID", "DISTI_COUNTRY_CODE", "AlteonP" ] }, { "Domain": "webuseradmin.analog.com", "Cookie": [ "ASP.NET_SessionId" ] }, { "Domain": "wiki.analog.com", "Cookie": [ "DokuWiki", "DW<hash>", "DOKU_PREFS" ] }, { "Domain": "www.analog.com", "Cookie": [ "__atuvc", "__atuvs", "_sdsat_Email Address", "_sdsat_Membership Status", "DisclaimerConfirmation", "dmdbase", "downloadGoals", "sc.ASP.NET_SESSIONID", "sc.Status", "SC_ANALYTICS_GLOBAL_COOKIE", "website#lang", "ipe.30155.pageViewedCount", "ipe_30155_fov", "ipe_s", "_sdsat_DevQaOrProd", "ASP.NET_SessionId" ] } ]; </script></footer><script type="text/javascript"> window.onload = function () { var checkDTM = setInterval(function () { if (!window._satellite || window._satellite === undefined || !window.jQuery || window.jQuery === undefined) return; window._satellite.pageBottom(); clearInterval(checkDTM); }, 100) } </script> 
+
+
+
+
+
+
+        <script type="text/javascript">
+
+                if (typeof ADI === 'object') { if (typeof ADI.Config === 'object') { } else { ADI.Config = {} } } else { ADI = {}; ADI.Config = {} }
+                ADI.Config.GetUserHomeData = 'https://my.analog.com/client/MyAnalog/GetUserHomeData';
+             
+            var filesTobeLoadedURL = [];            
+            filesTobeLoadedURL.push("//assets.adobedtm.com/50979bd26cd331a01d5fdada46d46662a6c23d1e/satelliteLib-6918599d4993e6e0537845174bbba34655d0ec94.js");																				
+
+
+                function downloadJSAtOnload() {
+
+                for (var i = 0; i < filesTobeLoadedURL.length; i++) {
+                    var element = document.createElement("script");
+                    element.src = filesTobeLoadedURL[i];
+                    document.body.appendChild(element);
+                }
+            }
+            if (window.addEventListener)
+                window.addEventListener("load", downloadJSAtOnload, false);
+            else if (window.attachEvent)
+                window.attachEvent("onload", downloadJSAtOnload);
+            else window.onload = downloadJSAtOnload;
+        </script>
+
+
+        <script id="image-modal-template" type="text/x-handlebars-template">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="image-label">{{{title}}}</h4>
+            </div>
+            <div class="modal-body">
+                <ul class="control-icons">
+                    <li>
+                        {{#if data_download}}
+                        <a class="downloadimagelink" href="{{data_download}}" download="{{data_download}}">
+                            <span id="downbutton" class="icon-download"></span>
+                        </a>
+                        {{else}}
+                        <a class="downloadimagelink" href="{{src}}" download="{{src}}">
+                            <span id="downbutton" class="icon-download"></span>
+                        </a>
+                        {{/if}}
+                    </li>
+                    <li><a class="print pull-right"><span class="icon-print"></span></a></li>
+                </ul>
+                <br />
+                <img alt="{{{title}}}" class="img-responsive" title="{{{title}}}" src="{{src}}" />
+                <br />
+            </div>
+
+        </script>
+        <div class="modal fade product-modal" id="image-modal" tabindex="-1" role="dialog" aria-labelledby="product-modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content"></div>
+            </div>
+        </div>
+        <div class="modal" id="adi-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script id="html5Videoplayer" type="text/x-handlebars-template">
+            <div style="display: block; position: relative;" id="videoTemplate">
+                <div style="padding-top: 56.25%;">
+                    <video data-account="{{accountid}}" data-player="{{playerid}}" data-embed="{{embed}}" data-application-id="" data-video-id="{{videoid}}" class="video-js" controls
+                           style="width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;"></video>
+                    <script src="//players.brightcove.net/{{accountid}}/{{playerid}}_default/index.min.js"></script>
+                
+            
+        
+                    <script type="text/javascript" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/addthis_widget.js.download"></script><div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; top: -9999px; z-index: 100000;"><iframe id="_atssh657" title="AddThis utility frame" style="height: 1px; width: 1px; position: absolute; top: 0px; z-index: 100000; border: 0px; left: 0px;" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/sh.f48a1a04fe8dbf021b4cda1d.html"></iframe></div><style id="service-icons-0"></style>
+
+
+        <link href="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/vendor.css" rel="stylesheet">
+        <script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/global.js.download" type="text/javascript"></script>
+            <script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/analog-dialogue.js.download" type="text/javascript"></script>
+        
+
+<input id="MediaFramework_ItemId" name="MediaFramework_ItemId" type="hidden" value="3941C7BD78DE4088B55FE34BD977EBF4">
+
+<div class="modal fade product-modal modal-video-window" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">×</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                </div>
+            </div>
+        </div><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/satelliteLib-6918599d4993e6e0537845174bbba34655d0ec94.js.download"></script><iframe sandbox="allow-scripts allow-same-origin" title="Adobe ID Syncing iFrame" id="destination_publishing_iframe_analogdevices_0" name="destination_publishing_iframe_analogdevices_0_name" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/dest5.html" class="aamIframeLoaded" style="display: none; width: 0px; height: 0px;"></iframe><img style="display:none" alt="" aria-hidden="true" id="db_bw_pixel_ad" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/demandbase"><script type="text/javascript" defer="" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/wrapper.js.download"></script><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/js(2)" async=""></script><script type="text/javascript" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/up_loader.1.1.0.js.download"></script><iframe src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/iFrame.html" id="iPerceptionsFrame" title="iPerceptionsFrame" style="display: none;"></iframe><iframe id="universal_pixel_cegtmc5" height="0" width="0" style="display:none;" src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/up.html" title="TTD Universal Pixel"></iframe><div><img id="UIF-IMG-1197" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEQAAABECAYAAAA4E5OyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAABEpJREFUeF7tnDuKFFEUhmcLbsEtuAW34BbcgltwC0ZGJmJkJiJioIEMCBqIoGgygaAGEwhiUM7Xzj/8fafq3lPPrkcXNNN0V1ff891z/vOoZk5OjseRQCOBhy+qIx0RAMYRyCUNwTgCuQDiMDYPJIWxaSB1MDYLpAnGJoHkYGwOSAnGpoBEYGwGSBTGJoC0gbF6IG1hrBpIFxirBZKBcfvZu/9N3GYKMzP0xqNXe4Y/+HRW3X//bUNADAbGn/44rwTlzssPFcd2gCSeAQwOQdkWkBo9wDMcioB8Of9dPf76vbr7+mN188mb6+Gz+JFZRiBTKDuXSQ6gAedKZBcNJJBaHQos0Ba8RRrjOrPsEWIGBqGA0UqxDoWQSbPPXgpepIdkYNw7/Vz9+vN3Fxj8lU6k4dMIZXFAMjAknIQB6RU4vvuCci1M/JqLAlLQDLIHR5o9gMN7wAHKOkImIKBKs16eA0fhky3Zdf1FeEghTASAEPFiTB6BlgBrHUAaYOD2z89+XlUVpFEXTiAQKvKavVpjsc1dZuEyFBDKKoLioCCWiusyu91CanVDU0/BYMKIrHPr6dtYqMxaQwoCSihwYLDqDp7LU8gotX1KQJjnp6mBRWv30QwgKCQIIwloNrUuRkMuF5oaw26z6xiM8XpfWYW/hAYw8JTOMGY1QjQYGI5AogXAUCgopaQzDn89lFpn7yG2QO20OlP0goaMtMnDZxwYr9SKsPbyjNmIqnmGtMChqJ7QzmM0gDjCtUVAl+YxD7GFaufroLD7HgrSjuJ8tA2Ig3tIslgZ6fVFGj6Cgr60LriicA6SdxsWV4JCqHiF2ltA69YxOZAGGEqtnlHqwof0W7zZFPWGgwPJwACEiiyFRF34KB2P4h2T1iGZXVMp7lmjLnw6l+NtPGaSkAn2JmlX6k0bFehoXuHrGx1IYHc0CyVkvDtFL4AyephMBqQAwytL6QZQeK75aKtZRgB+0ctG85CCZiibkEYVDi6mKt2LBgwBYXQPCQgoHiAv0GwD4wkZv8m0fCCFHcMzVIqrEsUzyCCTZJGSRw0aMgHNwBsAQnElvdDzUXqTEoD0/cGAZL7YxVOdqmtE+LcbbY3rcv4gQBq+mJBQLSFv8IJLv9PQ6G8dIdMAQ/NOzTPkGQDyG9K6q9Z6Ot5l9yOf6eUhl1+A8ey2h4Y8wVMqcNALHpzLOT4jnTyjDNrcGQy15C6KfqtAN5MAoVQ7yLgvsuNtz+nkITUw0vLatcJLcsFbD5ACDLRAxsp49ANA8ppJe5NRPSQAw28UpTekD1aOt4ESDhm7qM86dY/EX0sbMrQD7xh10tXG6Ny5ISA1F0ihqFmbvDsdCoSuUwSS+UKHMtoUfGiDS9fLAil9+OL9uvCZRT0RWHvtOrP/GCB40VVBqQUSBOGEVwPlGpAOMATG5xuLDZs9ID1gCMAsOtY+dlwB6XORNX12B2RNBvW05R+KtdVx9I5+dgAAAABJRU5ErkJggg==" style="display: block; position: fixed; cursor: pointer; width: auto; height: auto; margin: 0px !important; padding: 0px !important; border: 0px !important; z-index: 2147483647 !important; text-align: right !important; vertical-align: bottom !important; background-color: transparent !important; right: 0px; bottom: 0px;"></div><script src="./Transmit LO Leakage (LOL)—An Issue of Zero-IF That Isn’t Making People Laugh Out Loud _ Analog Devices_files/adsct" type="text/javascript"></script></body></html>
